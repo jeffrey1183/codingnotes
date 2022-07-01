@@ -4,7 +4,7 @@
 
 ## 🐍 Python
 
-* [Intro](python/intro/README.md)
+* [Intro](guides/creating-your-first-project.md)
   * [Introduction to Python Programming](python/intro/introduction-to-python-programming/README.md)
     * [Lesson 1：Why Python Programming?](python/intro/introduction-to-python-programming/lesson-1-why-python-programming.md)
     * [Lesson 2：Data Types And Operators](python/intro/introduction-to-python-programming/lesson-2-data-types-and-operators.md)
@@ -13,19 +13,19 @@
 
 ## 🍎 iOS
 
-* [Projects](ios/projects.md)
-* [Members](ios/members.md)
-* [Task Lists](ios/task-lists.md)
-* [Tasks](ios/tasks.md)
+* [Projects](fundamentals/projects.md)
+* [Members](fundamentals/members.md)
+* [Task Lists](fundamentals/task-lists.md)
+* [Tasks](fundamentals/tasks.md)
 
 ## 🤖 Android
 
-* [For Designers](android/for-designers/README.md)
-  * [Figma Integration](android/for-designers/figma-integration.md)
-* [For Engineers](android/for-engineers/README.md)
-  * [GitHub Integration](android/for-engineers/github-integration.md)
-* [For Support](android/for-support/README.md)
-  * [Intercom Integration](android/for-support/intercom-integration.md)
+* [For Designers](use-cases/for-designers/README.md)
+  * [Figma Integration](use-cases/for-designers/figma-integration.md)
+* [For Engineers](use-cases/for-engineers/README.md)
+  * [GitHub Integration](use-cases/for-engineers/github-integration.md)
+* [For Support](use-cases/for-support/README.md)
+  * [Intercom Integration](use-cases/for-support/intercom-integration.md)
 
 ## Extras
 
