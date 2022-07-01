@@ -1,12 +1,12 @@
 # Table of contents
 
-* [What is MyProduct?](README.md)
+* [目錄](README.md)
 
-## Guides
+## 🐍 Python
 
-* [Creating your first project](guides/creating-your-first-project.md)
-* [Creating your first task](guides/creating-your-first-task.md)
-* [Advanced permissions](guides/advanced-permissions.md)
+* [Creating your first project](python/creating-your-first-project.md)
+* [Creating your first task](python/creating-your-first-task.md)
+* [Advanced permissions](python/advanced-permissions.md)
 
 ## Fundamentals
 
