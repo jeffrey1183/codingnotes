@@ -34,16 +34,16 @@ Here are a couple of examples of succinct overviews from products with really gr
 
 Follow our handy guides to get started on the basics as quickly as possible:
 
-{% content-ref url="python/creating-your-first-project.md" %}
-[creating-your-first-project.md](python/creating-your-first-project.md)
+{% content-ref url="python/intro/" %}
+[intro](python/intro/)
 {% endcontent-ref %}
 
-{% content-ref url="python/creating-your-first-task.md" %}
-[creating-your-first-task.md](python/creating-your-first-task.md)
+{% content-ref url="guides/creating-your-first-task.md" %}
+[creating-your-first-task.md](guides/creating-your-first-task.md)
 {% endcontent-ref %}
 
-{% content-ref url="python/advanced-permissions.md" %}
-[advanced-permissions.md](python/advanced-permissions.md)
+{% content-ref url="guides/advanced-permissions.md" %}
+[advanced-permissions.md](guides/advanced-permissions.md)
 {% endcontent-ref %}
 
 {% hint style="info" %}
@@ -54,20 +54,20 @@ Follow our handy guides to get started on the basics as quickly as possible:
 
 Learn the fundamentals of MyProduct to get a deeper understanding of our main features:
 
-{% content-ref url="fundamentals/projects.md" %}
-[projects.md](fundamentals/projects.md)
+{% content-ref url="ios/projects.md" %}
+[projects.md](ios/projects.md)
 {% endcontent-ref %}
 
-{% content-ref url="fundamentals/members.md" %}
-[members.md](fundamentals/members.md)
+{% content-ref url="ios/members.md" %}
+[members.md](ios/members.md)
 {% endcontent-ref %}
 
-{% content-ref url="fundamentals/task-lists.md" %}
-[task-lists.md](fundamentals/task-lists.md)
+{% content-ref url="ios/task-lists.md" %}
+[task-lists.md](ios/task-lists.md)
 {% endcontent-ref %}
 
-{% content-ref url="fundamentals/tasks.md" %}
-[tasks.md](fundamentals/tasks.md)
+{% content-ref url="ios/tasks.md" %}
+[tasks.md](ios/tasks.md)
 {% endcontent-ref %}
 
 {% hint style="info" %}
