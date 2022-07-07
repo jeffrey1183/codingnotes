@@ -5,6 +5,7 @@
 ## 🐍 Python
 
 * [Intro](guides/creating-your-first-project.md)
+  * [Programiz](python/intro/programiz.md)
   * [Programming Foundations with Python](python/intro/programming-foundations-with-python.md)
   * [Introduction to Python Programming](python/intro/introduction-to-python-programming/README.md)
     * [Lesson 1：為何選擇 Python?](python/intro/introduction-to-python-programming/lesson-1-wei-he-xuan-ze-python.md)
