@@ -1,6 +1,7 @@
 # Table of contents
 
 * [目錄](README.md)
+* [Guitar Sketch](guitar-sketch.md)
 
 ## 🐍 Python
 
