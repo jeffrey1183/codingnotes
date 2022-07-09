@@ -12,7 +12,7 @@
     * [Lesson 2：Data Types And Operators](python/intro/introduction-to-python-programming/lesson-2-data-types-and-operators.md)
 * [Project](python/project/README.md)
   * [Take a Break](python/project/take-a-break.md)
-* [Advanced permissions](guides/advanced-permissions.md)
+* [Django](guides/advanced-permissions.md)
 
 ## 🍎 iOS
 
@@ -31,6 +31,6 @@
 * [For Support](use-cases/for-support/README.md)
   * [Intercom Integration](use-cases/for-support/intercom-integration.md)
 
-## Extras
+## Resources
 
-* [Mediums](extras/keyboard-shortcuts.md)
+* [CS50](resources/keyboard-shortcuts.md)

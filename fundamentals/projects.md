@@ -1,5 +1,7 @@
-# Projects
+---
+description: 'Swift 100 Days: https://www.hackingwithswift.com/100'
+---
 
-{% hint style="info" %}
-**Good to know:** Splitting your product into fundamental concepts, objects, or areas can be a great way to let readers deep dive into the concepts that matter most to them.
-{% endhint %}
+# Resources
+
+**筆記：**[**https://docs.google.com/document/d/1K5hnHPTIgd6aNuYONfTrgkh5kasy3bdZ-Tobtq8Y4nQ/edit#heading=h.ytk8fms8f9f4**](https://docs.google.com/document/d/1K5hnHPTIgd6aNuYONfTrgkh5kasy3bdZ-Tobtq8Y4nQ/edit#heading=h.ytk8fms8f9f4)****
