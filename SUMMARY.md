@@ -33,4 +33,4 @@
 
 ## Extras
 
-* [Keyboard Shortcuts](extras/keyboard-shortcuts.md)
+* [Mediums](extras/keyboard-shortcuts.md)
