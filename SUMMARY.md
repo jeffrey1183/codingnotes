@@ -31,6 +31,15 @@
 * [For Support](use-cases/for-support/README.md)
   * [Intercom Integration](use-cases/for-support/intercom-integration.md)
 
+## 🎙 Audio Plugin Development <a href="#audio" id="audio"></a>
+
+* [目錄](audio/for-designers/README.md)
+  * [Figma Integration](audio/for-designers/figma-integration.md)
+* [For Engineers](audio/for-engineers/README.md)
+  * [GitHub Integration](audio/for-engineers/github-integration.md)
+* [For Support](audio/for-support/README.md)
+  * [Intercom Integration](audio/for-support/intercom-integration.md)
+
 ## Resources
 
 * [CS50](resources/keyboard-shortcuts.md)
