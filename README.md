@@ -20,22 +20,6 @@ description: 目錄
 
 MDN：[https://developer.mozilla.org/en-US/docs/Learn](https://developer.mozilla.org/en-US/docs/Learn)
 
-
-
-
-
-
-
-#### 學習程式時思考
-
-常見問題：
-
-無法每天看，隔了一段時間看，前面的沒複習根本就忘光光
-
-新的內容搭載在舊的基礎上
-
-
-
 ## Release Notes
 
 * Version 1.0 released on 20220701.
