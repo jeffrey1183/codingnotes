@@ -194,4 +194,6 @@ The file “CommonDebugSettings.xcconfig” couldn’t be opened because there i
 - this assumes that you have installed the MacOSX10.6.sdk in /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/  - set SDKROOT to macosx10.6 for debug and release targets of AAXLibrary static lib   - modify ExamplePlugIns/Common/Mac/CommonDebugSettings.xcconfig and ExamplePlugIns/Common/Mac/CommonReleaseSettings.xcconfig...  GCC_VERSION = com.apple.compilers.llvm.clang  SDKROOT = macosx10.6  MACOSX_DEPLOYMENT_TARGET = 10.5  ARCHS = x86_64 i386
 ```
 
-\
+
+
+You should never add, rename, and/or remove source files from JUCE projects inside your native IDE (such as Xcode, Visual Studio). These changes would be overwritten the next time you save the project in Projucer (which re-generates the native IDE projects every time). Instead, always use the Projucer itself to make such changes.\
