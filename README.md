@@ -4,8 +4,6 @@ description: 目錄
 
 # 目錄
 
-##
-
 ## Overview
 
 現在學習程式很方便，網路上的免費和付費課程一大堆，只怕你看不完。我自己覺得有三個重點：
@@ -21,6 +19,8 @@ description: 目錄
 MDN：[https://developer.mozilla.org/en-US/docs/Learn](https://developer.mozilla.org/en-US/docs/Learn)
 
 
+
+## 開發前思考
 
 
 
