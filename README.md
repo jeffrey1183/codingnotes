@@ -22,6 +22,13 @@ MDN：[https://developer.mozilla.org/en-US/docs/Learn](https://developer.mozilla
 
 ## 開發前思考
 
+在開始一個網站專案前
+
+When starting with a web project, many people focus on the technical side. Of course you must be familiar with the technique of your craft, but what really matters is _what you want to accomplish_. Yes, it seems obvious, but too many projects fail not from a lack of technical know-how, but from lack of goals and vision.
+
+\
+
+
 
 
 
