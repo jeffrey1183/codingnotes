@@ -67,9 +67,33 @@ So when you get an idea and want to turn it into a website, there are a few ques
 
 
 
-#### [How could a website bring me to my goals?](https://developer.mozilla.org/en-US/docs/Learn/Common\_questions/Thinking\_before\_coding#how\_could\_a\_website\_bring\_me\_to\_my\_goals) <a href="#how_could_a_website_bring_me_to_my_goals" id="how_could_a_website_bring_me_to_my_goals"></a>
+審視你的目標
 
-#### &#x20;<a href="#how_could_a_website_bring_me_to_my_goals" id="how_could_a_website_bring_me_to_my_goals"></a>
+有些目標適合放在一起，有共通性，有些差距太大，像是上面第7項的發佈貓咪照片就跟其他目標差距太大，可以刪掉。像第一個目標，不太需要建立網站來解決，可以用現有網上資源去完成。
+
+
+
+#### [What needs to be done, and in what order, to reach my goals?](https://developer.mozilla.org/en-US/docs/Learn/Common\_questions/Thinking\_before\_coding#what\_needs\_to\_be\_done\_and\_in\_what\_order\_to\_reach\_my\_goals) <a href="#what_needs_to_be_done_and_in_what_order_to_reach_my_goals" id="what_needs_to_be_done_and_in_what_order_to_reach_my_goals"></a>
+
+#### 現在你知道要完成什麼，現在轉化成行動，而且目標可以隨著時間調整。 <a href="#how_could_a_website_bring_me_to_my_goals" id="how_could_a_website_bring_me_to_my_goals"></a>
+
+然後注意兩件事，第一，下面有些項目跟 web 不相關，例如錄音、寫文章。有些這些事情甚至比 web 更重要，以銷售為例，像供應鏈、付款、運送比建立網站讓用戶下訂單更重要。第二，規劃這些項目意味著有新問題要去解決。
+
+
+
+
+
+| Goals                      | Things to do                                                                                                                                                                                                     |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Let people hear your music | <ol><li>Record music</li><li>Prepare some audio files usable online (Could you do this with existing web services?)</li><li>Give people access to your music on some part of your website</li></ol>              |
+| Talk about your music      | <ol><li>Write a few articles to start the discussion</li><li>Define how articles should look</li><li>Publish those articles on the website (How to do this?)</li></ol>                                           |
+| Meet other musicians       | <ol><li>Provide ways for people to contact you (Email? Facebook? Phone? Mail?)</li><li>Define how people will find those contact channels from your website</li></ol>                                            |
+| Sell goodies               | <ol><li>Create the goodies</li><li>Store the goodies</li><li>Find a way to handle shipping</li><li>Find a way to handle payment</li><li>Make a mechanism on your site for people to place orders</li></ol>       |
+| Teach music through videos | <ol><li>Record video lessons</li><li>Prepare video files viewable online (Again, could you do this with existing web services?)</li><li>Give people access to your videos on some part of your website</li></ol> |
+
+### 結論 <a href="#conclusion" id="conclusion"></a>
+
+僅僅一個我想要做網站就可以產生許多代辦事項，雖然來起來很多事情，你不需要回答所有問題，重要的是有 vision，知道你要什麼和如何達到那裡。一旦你有清楚的 vision，你需要決定如何和何時去做，將 task 拆小，拆解成可行的步驟，一步步達成。
 
 
 
