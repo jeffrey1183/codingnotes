@@ -65,8 +65,21 @@ $ python
 $ django-admin startproject mysite
 ```
 
-* For example, I run `pip3 install Django` on the path of `/Users/jeffreywang/`, it influence my command become `/Users/jeffreywang/Library/Python/3.8/bin/django-admin startproject lecutre3` due to the path I install django-admin like below picture.
+建立之後會有一個 mysite 資料夾，資料夾的內的檔案和結構可以參考[官方介紹](https://docs.djangoproject.com/en/4.0/intro/tutorial01/)。
 
-{% hint style="info" %}
-**Good to know:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
+
+
+## 跑 Server
+
+要確定專案有沒有建立成功，可以透過下面的指令
+
+```
+$ python manage.py runserver
+```
+
+
+
+## 創造 App
+
+
+
