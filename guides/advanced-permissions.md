@@ -153,5 +153,5 @@ INSTALLED\_APPS 裡的 App 可以用在不同專案，預設有 admin 網站、a
 
 定義 model，事實上就是 database layout 和 metadata。
 
-一個 model 是獨立的資料，包含你想儲存的的欄位和執行的行為。Django 跟隨 [DRY Principle](https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#dry)
+一個 model 是獨立的資料，包含你想儲存的的欄位和執行的行為。Django 跟隨 [DRY Principle](https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#dry)，只要在一個地方定義 data model，會自動撈取資料，包含 migration。
 
