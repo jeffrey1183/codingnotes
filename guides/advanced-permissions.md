@@ -137,5 +137,21 @@ path() 函式有 4 個 argument，route 和 view 是必填，name 和 kwargs 是
 django.db.backends.postgresql
 ```
 
-如果你用 SQLite， [`USER`](https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-USER), [`PASSWORD`](https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-PASSWORD) HOST&#x20;
+如果你用 SQLite，還有像 USER、PASSWORD 和 HOST 的參數可以設定，詳細內容請參考[官方文件](https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-DATABASES) DB 創造 Table
+
+```
+$ python manage.py migrate
+```
+
+
+
+INSTALLED\_APPS 裡的 App 可以用在不同專案，預設有 admin 網站、authentication system、session framework 和 messaging framework 等。
+
+
+
+## 建立 Models&#x20;
+
+定義 model，事實上就是 database layout 和 metadata。
+
+一個 model 是獨立的資料，包含你想儲存的的欄位和執行的行為。Django 跟隨 [DRY Principle](https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#dry)
 
