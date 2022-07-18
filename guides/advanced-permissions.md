@@ -79,7 +79,63 @@ $ python manage.py runserver
 
 
 
-## 創造 App
+## 建立 App
+
+在建立 App 前先了解 Projects 和 App 在 Django 裡有什麼不同。專案比 Apps 在上一層階級，一個 Project 可以有多個 App，一個 App 可以加進多個 Project 內。下面是新增一個 App 的指令，這個 App 叫做 polls
+
+```
+$ python manage.py startapp polls
+```
+
+## 寫第一個 View
+
+打開 polls/views.py 檔案
+
+```python
+from django.http import HttpResponse
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index")
+```
+
+在 polls 資料夾新增`urls.py`
+
+```python
+from django.urls import path 
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+```
+
+接著要在專案的 urls.py 新增剛剛設定好的路徑，用 include
+
+```python
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]h
+```
+
+path() 函式有 4 個 argument，route 和 view 是必填，name 和 kwargs 是選填。
+
+* route 是 url pattern 內的字串，當用戶輸入網址 url 的 request 送出，就會在 urlpatterns 的 list 內尋找符合的字串。
+
+參考資料：[官方 Tutorial](https://docs.djangoproject.com/en/4.0/intro/tutorial01/)
 
 
+
+## Database 設定
+
+打開 mysite/settings.py 檔案，Django 預設使用 SQLite，如果你只是想了解 Django，SQLite 對新手是個好選擇，而且 SQLite 含在 Python 內，你不用另外安裝。但如果你要運用在公司的產品，考慮到 DB 的擴充性，你可能會想用 PostgreSQL 去避免轉換 DB 這種麻煩事，在 setting.py 裡找到 DATABASES 這一項，裡面的 ENGINE 可以調整成你要的語言。NAME 則是你 DB 的名稱。
+
+```
+django.db.backends.postgresql
+```
+
+如果你用 SQLite， [`USER`](https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-USER), [`PASSWORD`](https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-PASSWORD) HOST&#x20;
 
