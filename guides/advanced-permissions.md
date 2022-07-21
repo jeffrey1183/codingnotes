@@ -180,8 +180,14 @@ class Choice(models.Model):
 $ python manage.py makemigrations polls
 ```
 
-接著跑 sqs  their SQL
+接著跑下面 sqlmigrate 的指令，讓 migration 的名稱 return 到 SQL
 
 ```
 $ python manage.py sqlmigrate polls 0001
+```
+
+然後再下面 migrate 的指令把改動連結到 DB
+
+```
+$ python manage.py migrate
 ```
