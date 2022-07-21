@@ -180,3 +180,8 @@ class Choice(models.Model):
 $ python manage.py makemigrations polls
 ```
 
+接著跑 sqs  their SQL
+
+```
+$ python manage.py sqlmigrate polls 0001
+```
