@@ -191,3 +191,49 @@ $ python manage.py sqlmigrate polls 0001
 ```
 $ python manage.py migrate
 ```
+
+
+
+## Django Admin 後台
+
+新增用戶指令，設定新用戶的帳號、密碼和 email
+
+```
+ $python manage.py createsuperuser
+```
+
+啟動 server
+
+```
+$ python manage.py runserver
+```
+
+在 polls/admin.py 檔案新增 Question 的程式後，在啟動伺服器的狀態下登入[後台](http://127.0.0.1:8000/admin/)
+
+```python
+from django.contrib import admin
+
+from .models import Question
+
+admin.site.register(Question)
+```
+
+## View
+
+view 是一種 web page 在 Django內，application 有特定的 function 和 template，例如 blog application 可能有以下頁面：
+
+* Blog homepage – 顯示最新幾篇文件
+* Entry “detail” page – 文章內頁
+* Year-based archive page – 過去一年的文章
+* Month-based archive page – 過去一個月的文章
+* Day-based archive page – 過去一天的文章
+* Comment action – 一篇文章下的評論
+
+
+
+在 poll application，我們有下面四種 views:
+
+* Question “index” page – 顯示最新幾篇問題
+* Question “detail” page – 顯示問題的內容，有表格可以投票
+* Question “results” page – 顯示投票結果
+* Vote action – 處理對一個問題投票的動作
