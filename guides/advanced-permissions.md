@@ -69,14 +69,6 @@ $ django-admin startproject mysite
 
 
 
-## 跑 Server
-
-要確定專案有沒有建立成功，可以透過下面的指令
-
-```
-$ python manage.py runserver
-```
-
 
 
 ## 建立 App
@@ -86,6 +78,18 @@ $ python manage.py runserver
 ```
 $ python manage.py startapp polls
 ```
+
+
+
+## 跑 Server
+
+要確定專案有沒有建立成功，可以透過下面的指令
+
+```
+$ python manage.py runserver
+```
+
+接著連到 app 的網址：[http://127.0.0.1:8000/polls/](http://127.0.0.1:8000/polls/)
 
 ## 寫第一個 View
 
@@ -237,3 +241,5 @@ view 是一種 web page 在 Django內，application 有特定的 function 和 te
 * Question “detail” page – 顯示問題的內容，有表格可以投票
 * Question “results” page – 顯示投票結果
 * Vote action – 處理對一個問題投票的動作
+
+接著可以先寫一些 views 顯示文字，跟 URL 做 mapping，可以參考 [Tutorial 03](https://docs.djangoproject.com/en/4.0/intro/tutorial03/#writing-more-views)完成後就
