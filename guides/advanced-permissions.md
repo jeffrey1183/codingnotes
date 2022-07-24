@@ -242,4 +242,31 @@ view 是一種 web page 在 Django內，application 有特定的 function 和 te
 * Question “results” page – 顯示投票結果
 * Vote action – 處理對一個問題投票的動作
 
-接著可以先寫一些 views 顯示文字，跟 URL 做 mapping，可以參考 [Tutorial 03](https://docs.djangoproject.com/en/4.0/intro/tutorial03/#writing-more-views)完成後就
+接著可以先寫一些 views 顯示文字，跟 URL 做 mapping，可以參考 [Tutorial 03](https://docs.djangoproject.com/en/4.0/intro/tutorial03/#writing-more-views) 在 polls/views.py 和 polls/urls.py 新增完程式後可以在以下網址看到相應的文案。
+
+* [http://127.0.0.1:8000/polls/34/](http://127.0.0.1:8000/polls/34/)
+* [http://127.0.0.1:8000/polls/34/results](http://127.0.0.1:8000/polls/34/results)
+* [http://127.0.0.1:8000/polls/34/vote/](http://127.0.0.1:8000/polls/34/vote/)
+
+當使用者輸入第一個 /polls/34/ 的網址，Django 會先去 mysite/urls.py 找 urlpatterns 裡 path 函式內有 polls 字串的那行，那行引導到 polls 應用內的 urls 檔案。剩下的 34/ 找到對應的 \<int:question\_id>/ 然後 跑下面的 detail 函式。
+
+```python
+detail(request=<HttpRequest object>, question_id=34)
+```
+
+`question_id=34` 的部分是來自 `<int:question_id>，用` angle brackets 去捕捉 URL 的部分資料當作 keyword argument 傳到 view 函數。`<int:question_id> 裡的 question_id` 是字串， `int 是` converter 決定什麼模式要符合 URL path，. 用 colon (`:`) 將 converter 和 pattern name 分開。
+
+
+
+## 更複雜、實用的 View&#x20;
+
+每一個 view 負責兩件事的其中一件事：
+
+1. 回傳 [`HttpResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpResponse) 物件包含頁面的內容
+2. 處理像 [`Http404`](https://docs.djangoproject.com/en/4.0/topics/http/views/#django.http.Http404)
+
+view 可以從 database 讀取資料，也可以用 Django template system 或第三方 Python template system，產生 PDF file, 輸出XML, 即時新增 ZIP 檔案，使用任何 Python libraries。
+
+Django 需要處理的就是 [`HttpResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpResponse)
+
+在第二章 [Tutorial 2](https://docs.djangoproject.com/en/4.0/intro/tutorial02/) 裡，我們知道 Django 自己的 database API 很方便。我們現在在首頁插入一塊 view，會顯示至少系統裡 5 個問題，用逗號隔開，順序會依照問題的發布日期(publication date)。
