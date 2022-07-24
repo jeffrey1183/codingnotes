@@ -269,4 +269,17 @@ view 可以從 database 讀取資料，也可以用 Django template system 或�
 
 Django 需要處理的就是 [`HttpResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpResponse)
 
-在第二章 [Tutorial 2](https://docs.djangoproject.com/en/4.0/intro/tutorial02/) 裡，我們知道 Django 自己的 database API 很方便。我們現在在首頁插入一塊 view，會顯示至少系統裡 5 個問題，用逗號隔開，順序會依照問題的發布日期(publication date)。
+在第二章 [Tutorial 2](https://docs.djangoproject.com/en/4.0/intro/tutorial02/) 裡，我們知道 Django 自己的 database API 很方便。我們現在在首頁插入一塊 view，會顯示至少系統裡 5 個問題，用逗號隔開，順序會依照問題的發布日期(publication date)。\
+
+
+```python
+from django.http import HttpResponse
+from .models import Quesiton
+
+def index(HttpRequest):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    output = ','.join([q.question_text for q in lastest_question_list])
+    return HttpResponse(output)
+```
+
+這邊先寫一個 list 是撈出最近的 5 個問題且依照 pub\_date，再寫一個 output 變數用 for loop 把剛剛 list 內的 question text 都抓出來用逗號連結。
