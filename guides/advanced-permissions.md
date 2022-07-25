@@ -322,6 +322,44 @@ def index(HttpRequest):
 </html>
 ```
 
+並要更新 index view，我們新增了 template 的變數，讀取 polls/index.html，新增一個 context 的 dictionary
 
+```python
+from django.http import HttpResponse
+from django.template import loader
+
+from .models import Question
+
+
+def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    template = loader.get_template('polls/index.html')
+    context = {
+        'latest_question_list': latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))
+```
+
+
+
+## render()
+
+讀取 template 的時候會更常用 render()，上面的程式改寫後可以省掉儲存 template 變數。
+
+
+
+```python
+from django.shortcuts import render
+
+from .models import Question
+
+
+def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', context)
+```
+
+上面的改寫，其實我們就不需要讀取 loader 和 HttpResponse，render() 會把 request object 的第一個 argument，然後第三個 optional argument 是放 dictionary 的資料類型，這邊是放 context，可放可不放。根據 Template render 出 context 回傳[`HttpResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpResponse) object。
 
 \
