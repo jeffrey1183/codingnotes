@@ -283,3 +283,45 @@ def index(HttpRequest):
 ```
 
 這邊先寫一個 list 是撈出最近的 5 個問題且依照 pub\_date，再寫一個 output 變數用 for loop 把剛剛 list 內的 question text 都抓出來用逗號連結。
+
+
+
+## Templates
+
+如果你要改變頁面的樣式，可以使用 Django’s template system 將設計分開，創造一個 template。
+
+先在 polls 資料夾下新增 templates 這個資料夾，Django 會從這裡找設計模板。
+
+
+
+專案中 [`TEMPLATES`](https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-TEMPLATES) 的設定跟 Django 會怎麼讀取和 render 模板可以參考文件。
+
+在剛剛 `templates` 資料夾下新增 `polls 資料夾和 index.html。換句話說，你的 template 會在polls/templates/polls/index.html。然後把下面的程式寫進 index.html。`
+
+``
+
+```html
+<html>
+    <head>
+    </head>
+    <body>
+        {% raw %}
+{% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <li>
+                    <a href="/polls/{{ question.id }}/">{{question.question_text}}</a>
+                </li>
+            {% endfor %}
+         </ul>
+         {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+{% endraw %}
+    </body>
+</html>
+```
+
+
+
+\
