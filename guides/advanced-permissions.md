@@ -362,4 +362,8 @@ def index(request):
 
 上面的改寫，其實我們就不需要讀取 loader 和 HttpResponse，render() 會把 request object 的第一個 argument，然後第三個 optional argument 是放 dictionary 的資料類型，這邊是放 context，可放可不放。根據 Template render 出 context 回傳[`HttpResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpResponse) object。
 
+
+
+## 處理 404 error
+
 \
