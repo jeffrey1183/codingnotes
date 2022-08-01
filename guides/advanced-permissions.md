@@ -366,4 +366,19 @@ def index(request):
 
 ## 處理 404 error
 
+如果 question 不存在，就會有 404 的情況要處理，Django 提供 get object or 404 function 處理 404 的情況，function 的第一個 argument 是你之前寫的 model，同時也傳到 get() function，如果物件不存在 Http404 就會 raise。
+
+```python
+from django.shortcuts import get_object_or_404, render
+from .models import Question
+
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+```
+
 \
+
+
+
+
