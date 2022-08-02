@@ -377,6 +377,8 @@ def detail(request, question_id):
     return render(request, 'polls/detail.html', {'question': question})
 ```
 
+## 使用模板
+
 \
 
 
