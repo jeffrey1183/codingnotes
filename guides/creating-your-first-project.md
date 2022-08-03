@@ -1,6 +1,6 @@
 # Intro
 
-下面[兩層巢狀迴圈](https://medium.com/ccclub/ccclub-python-for-beginners-tutorial-4990a5757aa6)
+下面[兩層巢狀迴圈](https://medium.com/ccclub/ccclub-python-for-beginners-tutorial-4990a5757aa6)印出來會
 
 ```python
 for i in range(1, 10):
