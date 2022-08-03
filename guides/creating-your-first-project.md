@@ -1,12 +1,15 @@
-# Creating your first project
+# Intro
 
-{% hint style="info" %}
-**Good to know:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
+下面[兩層巢狀迴圈](https://medium.com/ccclub/ccclub-python-for-beginners-tutorial-4990a5757aa6)
 
-## The basics
-
-Projects are containers for task lists. Think of them as a library for everything your team needs to get done to complete or ship a project.
+```python
+for i in range(1, 10):
+    for j in range(1, 10):
+        if j == 9:
+            print("\t", i*j) # j == 9時，換行
+        else:
+            print("\t", i*j, end = '') # j < 9時，不換行
+```
 
 ## Creating a project
 

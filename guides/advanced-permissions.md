@@ -380,7 +380,18 @@ def detail(request, question_id):
 ## 使用模板
 
 \
+回到 `detail()` view ，我們用 `question 變數改寫 polls/detail.html` 模板檔案：
 
+```
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% raw %}
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+{% endraw %}
+</ul>
+```
 
-
+這些模板我們是用 dot-lookup 語法去  access variable attributes。
 
