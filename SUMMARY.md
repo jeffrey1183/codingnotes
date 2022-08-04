@@ -13,7 +13,7 @@
     * [Lesson 2：Data Types And Operators](python/intro/introduction-to-python-programming/lesson-2-data-types-and-operators.md)
 * [Project](python/project/README.md)
   * [Take a Break](python/project/take-a-break.md)
-* [Django](python/advanced-permissions/README.md)
+* [Django](guides/advanced-permissions.md)
   * [重要觀念](python/advanced-permissions/zhong-yao-guan-nian.md)
 
 ## 🍎 iOS
