@@ -451,6 +451,10 @@ urlpatterns = [
 
 ## 設計表格
 
-接著來更新 polls/detail.html 檔案內加入表格，表格的寫法用到 [fieldset tag](https://www.w3schools.com/tags/tag\_fieldset.asp) 的概念，fieldset tag 會把裡面的 label 都包起來
+接著來更新 polls/detail.html 檔案內加入表格，表格的寫法用到 [fieldset tag](https://www.w3schools.com/tags/tag\_fieldset.asp) 的概念，fieldset tag 會把裡面的 label 都包起來。在 HTML 5.2 之後，[ legend tag 裡面可以塞 header](https://stackoverflow.com/questions/8005887/is-header-in-legend-valid-legendh1caption-h1-legend)，會讓
+
+
+
+form tag 的 action attribute 是指提交表單後要向何處發送。
 
 最下面有一個 [submit 的按鈕](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/input/submit) input tag，type 等於 submit 。
