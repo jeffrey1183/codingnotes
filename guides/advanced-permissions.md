@@ -451,7 +451,15 @@ urlpatterns = [
 
 ## 設計表格
 
-接著來更新 polls/detail.html 檔案內加入表格，表格的寫法用到 [fieldset tag](https://www.w3schools.com/tags/tag\_fieldset.asp) 的概念，fieldset tag 會把裡面的 label 都包起來。在 HTML 5.2 之後，[ legend tag 裡面可以塞 header](https://stackoverflow.com/questions/8005887/is-header-in-legend-valid-legendh1caption-h1-legend)，會讓
+接著在 polls/detail.html 檔案內加入表格，表格的寫法用到 [fieldset tag](https://www.w3schools.com/tags/tag\_fieldset.asp) 的概念，fieldset tag 會把裡面的 label 都包起來，變成一個大表格。在 HTML 5.2 之後，[ legend tag 裡面可以塞 ](https://stackoverflow.com/questions/8005887/is-header-in-legend-valid-legendh1caption-h1-legend)h1, h2...h6 這些標題(heading)，會讓每個 label 都變成標題。
+
+
+
+form tag 裡面有 label tag 和 input tag，input tag 有 type, name, id, value 幾個 attribute，input 代表輸入框，[value 代表輸入框裡的值](https://matthung0807.blogspot.com/2019/08/html-input-value.html)
+
+
+
+他們有相關性，一般會用 [label 的 for attribute 去綁 input 的 id](https://www.w3school.com.cn/tags/att\_label\_for.asp)。
 
 
 
