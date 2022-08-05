@@ -455,7 +455,7 @@ urlpatterns = [
 
 
 
-form tag 裡面有 label tag 和 input tag，input tag 有 type, name, id, value 幾個 attribute，input 代表輸入框，[value 代表輸入框裡的值](https://matthung0807.blogspot.com/2019/08/html-input-value.html)
+form tag 裡面有 label tag 和 input tag，input tag 有 type, name, id, value 幾個 attribute，input 代表輸入框，[value 代表輸入框裡的值](https://matthung0807.blogspot.com/2019/08/html-input-value.html)id 和 name 常常會搞混， id 是唯一的，而 name 是可以重複的。
 
 
 
