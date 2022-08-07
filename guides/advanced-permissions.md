@@ -453,19 +453,9 @@ urlpatterns = [
 
 接著在 polls/detail.html 檔案內加入表格，表格的寫法用到 [fieldset tag](https://www.w3schools.com/tags/tag\_fieldset.asp) 的概念，fieldset tag 會把裡面的 label 都包起來，變成一個大表格。在 HTML 5.2 之後，[ legend tag 裡面可以塞 ](https://stackoverflow.com/questions/8005887/is-header-in-legend-valid-legendh1caption-h1-legend)h1, h2...h6 這些標題(heading)，會讓每個 label 都變成標題。
 
-form tag 裡面有 label tag 和 input tag，他們有相關性，一般會用 [label 的 for attribute 去綁 input 的 id](https://www.w3school.com.cn/tags/att\_label\_for.asp)。input tag 有 type, name, id, value 幾個 attribute，input 代表輸入框，[value 代表輸入框裡的值](https://matthung0807.blogspot.com/2019/08/html-input-value.html) id 和 name 常常會搞混， id 是唯一的，而 name 是可以重複的。
+form tag 裡面有 label tag 和 input tag，他們有相關性，一般會用 [label 的 for attribute 去綁 input 的 id](https://www.w3school.com.cn/tags/att\_label\_for.asp)。input tag 有 type, name, id, value 幾個 attribute，input 代表輸入框，[value 代表輸入框裡的值](https://matthung0807.blogspot.com/2019/08/html-input-value.html) id 和 name 常常會搞混， id 是唯一的，而 name 是可以重複的。form tag 的 action attribute 是指提交表單後要向何處發送，然而 [forloop.counter](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#std-templatetag-for) 是指 index 1 開始跑 loop，最下面設定了一個[送出的按鈕](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/input/submit)，type 設定成 submit 。
 
-
-
-[forloop.counter](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#std-templatetag-for) 是從 index 1 開始跑 loop
-
-form tag 的 action attribute 是指提交表單後要向何處發送。
-
-最下面有一個 [submit 的按鈕](https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/input/submit) input tag，type 等於 submit 。
-
-
-
-Since we’re creating a POST form (which can have the effect of modifying data), we need to worry about Cross Site Request Forgeries. Thankfully, you don’t have to worry too hard, because Django comes with a helpful system for protecting against it. In short, all POST forms that are targeted at internal URLs should use the [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#std-templatetag-csrf\_token) template tag.
+因為我們寫了一個 POST 的表格，可以修改資料，因此要擔心 [Cross Site Request Forgeries](https://zh.wikipedia.org/zh-tw/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0) 的攻擊，但 不用太擔心，因為 Django 能防止這樣的攻擊，只要使用 [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#std-templatetag-csrf\_token) template tag。
 
 
 
