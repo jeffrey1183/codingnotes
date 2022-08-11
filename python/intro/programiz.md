@@ -47,7 +47,7 @@ print(languages)   # ('Python', 'JavaScript')
 
 ```
 
-所以也不能刪除單一的 item，只能刪除整個 tuple/。
+所以也不能刪除單一的 item，只能刪除整個 tuple。
 
 
 
