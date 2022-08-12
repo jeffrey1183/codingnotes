@@ -26,7 +26,11 @@ print(numbers[3: 5])   # (40, 50)
 print(numbers[3: -1])   # (40, 50)
 ```
 
-Tuple 不能改 item 的值，但可以整個重新 assign，像下面這個會跑出 TypeError
+List 和 Tuple 可以放重複的值。
+
+
+
+Tuple 不能改 item 的值，這點跟 List 不同，但可以整個重新 assign，像下面這個會跑出 TypeError
 
 ```python
 languages = ('Python', 'JavaScript', 'C++')
@@ -78,3 +82,71 @@ dict5 = {1: 'One', 1: 'Two'}
 
 Dictionary 可以新增、更改和刪除裡面的項目。
 
+
+
+Set 不能包含重複的值。&#x20;
+
+
+
+Set 刪除項目時是用 discard method
+
+```python
+animals = {'tiger', 'cat', 'dog'}
+ 
+# Remove the 'cat' item
+animals.discard('cat')
+ 
+print(animals)   # {'dog','tiger'}
+```
+
+Set 沒有順序性，所以像下面聯集的案例，印出的結果不管是 {3,4,1,2}、{1,2,3,4}、{2,1,3,4} 都是對的。
+
+```
+odd_numbers = {1, 3}
+even_numbers = {2, 4}
+
+# union of sets
+numbers = odd_numbers | even_numbers
+
+print(numbers)
+
+```
+
+
+
+List, tuple, dictionary, set 這些 compound data 是可以用下面這些 functions 轉換。
+
+* `list()` - converts to list
+* `tuple()` - converts to tuple
+* `dict()` - converts to dictionary
+* `set()` - converts to set
+
+Set 不能包含重複的值，如果轉換的時候 list 和 tuple 有重複的值變成一個，像下面這樣：
+
+```python
+# convert list to set
+result = set([1, 2, 3])
+print(result) # {1, 2, 3}
+ 
+#convert string to set
+result = set('abca')
+print(result) # {'a', 'b', 'c'}
+ 
+# convert tuple to set
+result = set((1, 2, 3, 2, 3))
+print(result) # {1, 2, 3}
+ 
+# convert dictionary to set
+result = set({2: 4, 10: 20}) # (2, 10)
+print(result)
+```
+
+藉著這樣的特性，我們可以把 list 裡重複的值透過二次轉換移除：
+
+```python
+numbers = [1, 1, 2, 3, 4, 1, 1]
+ 
+numbers = list(set(numbers))
+print(numbers)   # [1, 2, 3, 4]
+
+```
