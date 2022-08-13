@@ -151,4 +151,17 @@ print(numbers)   # [1, 2, 3, 4]
 
 ```
 
+如果要找出 list 內交集的項目，也可以把 list 轉成 tuple，再用聯集的方式，如下案例：
+
+```python
+frontend_developers = ['Rob', 'Jane', 'Mary', 'Anne']
+backend_developers = ['Jane', 'Jack', 'Lily']
+
+# converting lists to sets and performing set intersection
+both_developers = set(frontend_developers) & set(backend_developers)
+
+# converting to list and printing it
+print(list(both_developers))
+```
+
 ![](../../.gitbook/assets/image.png)
