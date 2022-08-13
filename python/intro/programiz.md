@@ -150,3 +150,5 @@ numbers = list(set(numbers))
 print(numbers)   # [1, 2, 3, 4]
 
 ```
+
+![](../../.gitbook/assets/image.png)
