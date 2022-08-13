@@ -151,7 +151,7 @@ print(numbers)   # [1, 2, 3, 4]
 
 ```
 
-如果要找出 list 內交集的項目，也可以把 list 轉成 tuple，再用聯集的方式，如下案例：
+如果要找出 list 內交集的項目，也可以把 list 轉成 set，再用聯集的方式，如下案例：
 
 ```python
 frontend_developers = ['Rob', 'Jane', 'Mary', 'Anne']
