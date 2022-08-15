@@ -165,3 +165,39 @@ print(list(both_developers))
 ```
 
 ![](../../.gitbook/assets/image.png)
+
+
+
+Module
+
+Module 是一個檔案，裡面包含很多可以用在 app 內的 function，只要 import 進來就可以使用。
+
+你可能聽過 Python 可以用在  data analytics、web development 和 automation。為了解決這些面向的問題，我們可以不需要從頭開始寫，例如：
+
+* data analytics, 有像 NumPy, pandas 的 modules
+* web development, 有像  Django, Flask 的 modules
+* csv files, 有像 csv, pandas 的 modules
+
+
+
+程式上的寫法如下：
+
+![](<../../.gitbook/assets/image (1).png>)
+
+要想知道更多 math module 裡的 function，可以搜尋 Python math module。如果只要 import 一些 function，我們可以用  `from...import` 。
+
+
+
+```
+from math import sqrt, floor
+ 
+number = 25
+ 
+# compute square root
+result = sqrt(number)
+ 
+print(result)   # 5.0
+```
+
+
+
