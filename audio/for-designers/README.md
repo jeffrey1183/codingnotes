@@ -124,7 +124,7 @@ Wwise 是遊戲音效
 
 [https://www.mathworks.com/help/audio/gs/design-an-audio-plugin.html](https://www.mathworks.com/help/audio/gs/design-an-audio-plugin.html)
 
-Matlab 提供的基本知識：[什麼是 DAW, MIDI, audio plugin](broken-reference)
+Matlab 提供的基本知識：[什麼是 DAW, MIDI, audio plugin](http://What%20Are%20DAWs,%20Audio%20Plugins,%20and%20MIDI%20Controllers?)
 
 MATLAB Online
 
