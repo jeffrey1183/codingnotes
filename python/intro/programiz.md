@@ -164,7 +164,7 @@ both_developers = set(frontend_developers) & set(backend_developers)
 print(list(both_developers))
 ```
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (1).png>)
 
 
 
@@ -182,13 +182,13 @@ Module 是一個檔案，裡面包含很多可以用在 app 內的 function，�
 
 程式上的寫法如下：
 
-![](<../../.gitbook/assets/image (1).png>)
+![](../../.gitbook/assets/image.png)
 
-要想知道更多 math module 裡的 function，可以搜尋 Python math module。如果只要 import 一些 function，我們可以用  `from...import` 。
+要想知道更多 math module 裡的 function，可以搜尋 Python math module。如果只要 import 一些 function，我們可以用  `from...import` ，像下面只有 import sqrt 和 floor 兩個 function。
 
 
 
-```
+```python
 from math import sqrt, floor
  
 number = 25
@@ -201,3 +201,84 @@ print(result)   # 5.0
 
 
 
+## Nested Loops
+
+loop 可以放進另一個 loop 裡，稱為 nested loop。裡面的 inner loop 會基於外層的 loop 每個 iteration 執行，以下面的案例，inner loop 內的每個項目會跑一次。
+
+**外圈第一輪**
+
+* **attribute** is `'Electric'`, **car** is `'Tesla'`
+* **attribute** is `'Electric'`, **car** is `'Porsche'`
+* **attribute** is `'Electric'`, **car** is `'Mercedes'`
+
+**外圈第二輪**
+
+* **attribute** is `'Fast'`, **car** is `'Tesla'`
+* **attribute** is `'Fast'`, **car** is `'Porsche'`
+* **attribute** is `'Fast'`, **car** is `'Mercedes'`
+
+```python
+attributes = ['Electric', 'Fast']
+cars = ['Tesla', 'Porsche', 'Mercedes']
+
+for attribute in attributes:
+    for car in cars:
+        print(attribute, car)
+#Output        
+#Electric Tesla
+#Electric Porsche
+#Electric Mercedes
+#Fast Tesla
+#Fast Porsche
+#Fast Mercedes
+```
+
+
+
+## Assignment Operators
+
+當我們 `=`  等於符號的時候，指的是把 value assign 到 variable 內。例如：
+
+```python
+pi = 3.1415
+```
+
+實際上還有很多 assignment operator
+
+| Operator | Example   | Equivalent to |
+| -------- | --------- | ------------- |
+| `+=`     | x += 5    | x = x + 5     |
+| `-=`     | x -= 5    | x = x - 5     |
+| `*=`     | x \*= 5   | x = x \* 5    |
+| `/=`     | x /= 5    | x = x / 5     |
+| `%=`     | x %= 5    | x = x % 5     |
+| `//=`    | x //= 5   | x = x // 5    |
+| `**=`    | x \*\*= 5 | x = x \*\* 5  |
+
+`/=` 跟  `//=`  跟 `%=`最容易搞混，第一個是整除，第二個是商數(quotient)，第三個是餘數。
+
+```python
+x = 15
+x /= 4
+print(y)
+
+y = 15
+y //= 4  
+print(x)
+
+z = 12
+z %= 4
+print(z)
+
+# Output x : 3.75
+# Output y : 3
+# Output z : 0
+```
+
+
+
+
+
+* None
+* Truthy and Falsy
+* pass Statement
