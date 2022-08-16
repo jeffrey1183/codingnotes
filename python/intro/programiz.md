@@ -277,8 +277,84 @@ print(z)
 
 
 
+None
+
+* The `None` keyword is used to indicate null i.e. no value.
+* None 是用來表示 null，沒有值
+
+```python
+def greet():
+    print('Hey')
+ 
+result = greet()
+print(result)
+
+#Output
+#Hey
+#None
+```
+
+這裡的 `greet()` function 沒有 return 任何值，意思是他回傳 `None`
 
 
-* None
-* Truthy and Falsy
-* pass Statement
+
+
+
+Truthy and Falsy
+
+如果值是 `True` 我們就稱作 **truthy** values，同樣的，如果值是`False` ，我們稱作 **falsy** values。
+
+在 Python 裡，下面這些值被視為 **falsy。**
+
+* `None`
+* `False`
+* **0**, **0.0**
+* 空的 strings, lists, dictionaries&#x20;
+
+下面的案例為何我們得到的結果是 20 而不是 30，就跟上面的概念有關。
+
+```python
+n1 = 20
+n2 = 10
+n3 = 30
+ 
+if n1 > n2 and n3:
+    print(n1)
+elif n2 > n1 and n3:
+    print(n2)
+else:
+    print(n3)
+
+#Output
+#20
+```
+
+因為, `n1 > n2` 被視為 `True`, 加上 `n3` 也被視為 `True` 因此 30，印出 20。應該改寫成
+
+```python
+if n1 > n2 and n1 > n3:
+    print(n1)
+```
+
+
+
+pass Statement
+
+假設我們有 loop 或 function 現在還不能 implemented 要之後才能，我們無法用 empty body 或 comment 因為會有 error 產生。
+
+為此，我們可以用 `pass` statement 讓程式空著。
+
+Here's how we can resolve the issue in the above program.
+
+```python
+n = 10
+
+if n > 10:
+    pass
+ 
+print('Hello')
+
+#Output
+#Hello
+```
+
