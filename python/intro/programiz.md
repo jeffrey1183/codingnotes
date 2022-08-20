@@ -377,3 +377,24 @@ new_string = language.replace('yt', ch)
 
 print(new_string)
 ```
+
+
+
+合併 Dictionary
+
+* 用 update() function
+* [參考資料](https://favtutor.com/blogs/merge-dictionaries-python)
+
+```python
+# Replace ___ with your code
+
+# create two dictionaries
+A = {12: 'Kathmandu', 11: 'London', 3: 'Sydney'}
+B = {10: 'New York', 2: 'Delhi'}
+
+# merge the two dictionaries using update()
+A.update(B)
+
+# print the merged dictionary
+print(A)
+```
