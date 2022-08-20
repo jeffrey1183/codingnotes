@@ -358,3 +358,22 @@ print('Hello')
 #Hello
 ```
 
+`replace()` method
+
+* 包含兩個 argument，以下面的案例為例，可以看 replace method 怎麼把 Python 的 yt 換成用戶輸入的字。
+  * **oldValue** - a substring we want to replace
+  * **newValue** - a substring that replaces the oldValue
+
+```python
+# Replace ___ with your code
+
+language = 'Python'
+
+# take string as input for ch variable
+ch = input()
+
+# use the replace() method to replace 'yt'
+new_string = language.replace('yt', ch)
+
+print(new_string)
+```
