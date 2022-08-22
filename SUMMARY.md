@@ -7,7 +7,7 @@
 
 * [Intro](guides/creating-your-first-project.md)
   * [Programiz](python/intro/programiz.md)
-  * [Programming Foundations with Python](python/intro/programming-foundations-with-python.md)
+  * [Python Beyond Basic](python/intro/python-beyond-basic.md)
   * [Introduction to Python Programming](python/intro/introduction-to-python-programming/README.md)
     * [Lesson 1：為何選擇 Python?](python/intro/introduction-to-python-programming/lesson-1-wei-he-xuan-ze-python.md)
     * [Lesson 2：Data Types And Operators](python/intro/introduction-to-python-programming/lesson-2-data-types-and-operators.md)
