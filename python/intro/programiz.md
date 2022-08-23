@@ -164,7 +164,7 @@ both_developers = set(frontend_developers) & set(backend_developers)
 print(list(both_developers))
 ```
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 
 

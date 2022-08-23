@@ -119,4 +119,15 @@ print(double(10))    # 20
 這邊的`double()` function 有一個 argument 並回傳兩倍的值。現在我們用 lambda function 改寫。
 
 ```python
+double = lambda n: n*2
+print(double(10))
 ```
+
+我們用 `lambda` 當作關鍵字去定義 lambda function，在 `:` 之前是我們接收的argument ，在冒號 `:` 之後是回傳值。
+
+![](<../../.gitbook/assets/image (1).png>)
+
+以程式來看，我們把 lambda function  assigned 到 `double` 這個變數裡，我們 call 這個lambda function透過 `double(value)`的寫法。
+
+
+
