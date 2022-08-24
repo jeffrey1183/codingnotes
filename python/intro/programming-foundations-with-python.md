@@ -167,7 +167,7 @@ display_info(age = '22', name = 'Amanda')
 
 ```
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (3).png>)
 
 ## Default Arguments
 
@@ -239,9 +239,9 @@ greet('Hi', 'Hello')
 greet()
 ```
 
-像下面這個案例就很方便，根據
+像下面這個案例就很方便，numbers 可以隨你想放幾個 argument 把他們做加總。
 
-```
+```python
 def add_numbers(*numbers):
     
     # calculate sum of tuple items
@@ -261,3 +261,96 @@ print(result)    # 35
 
 ```
 
+
+
+## \*\*kwargs
+
+kw 是 keyword，arg 是 argument。當然也可以一次傳多個 keyword argument，只要我們在 argument 前加兩個星星 `**` 。
+
+```python
+def print_info(**person):
+    print(person)
+
+print_info()
+print_info(name = 'Steve')
+print_info(name = 'Steve', age = 22)
+
+
+#{}
+#{'name': 'Steve'}
+#{'name': 'Steve', 'age': 22}
+```
+
+裡面的 keyword argument 可以一直加，印出來是一個  dictionary，dictionary 的 key 是你輸入的 argument 名稱，value 會是 argument 的 value，看下面的案例比較清楚：
+
+* the key will be the argument name
+* the key's value will be the value of the argument
+
+```python
+# make the function take a variable number of keyword arguments
+def greet(**number):
+    # print the argument
+    print(number)
+
+formal = input()
+informal = input()
+greet(formal = formal, informal = informal)
+
+#Test Input
+#Hello
+#Howdy
+
+#Output
+#{'formal': 'Hello', 'informal': 'Howdy'}
+```
+
+
+
+## Recursion
+
+據我們所知，我們呼叫 function 並使用它們，但其實可以從 function 的 body 內呼叫 function 自己。遞迴 function 就是 function 自己叫自己。Recursion 遞迴不是  Python native，其他程式也有遞迴的概念，我們從下面的案例開始說明：
+
+<pre class="language-python"><code class="lang-python">def print_variable():
+    text = 'Hello'
+    print(text)
+  
+    # call print_variable() inside the same function
+    print_variable()
+
+print_variable()
+
+#Output
+<strong>#Hello
+</strong>#Hello
+#Hello
+#... .. ...
+</code></pre>
+
+運作的概念上，在
+
+![](<../../.gitbook/assets/image (1).png>)
+
+我們在  `print_variable()` function 內呼叫 `print_variable()` function 他自己，因此會不斷循環，這是一個無限 recursion 的案例，有幾件事情我們需要知道。
+
+1. 雖然我們一直在 call `print_variable()` function，但這些 functions 其實不同。
+2. 因為在 function 內的 variable 是 local variable， `text` variable 在每個 `print_variable()` function 內都是 local 的。
+
+![](../../.gitbook/assets/image.png)
+
+## Classes and Objects
+
+
+
+There are two steps involved in creating objects:
+
+1. Define a class
+2. Create objects from the class
+
+
+
+
+
+When working with classes and objects,
+
+* **variables** are called **attributes**
+* **functions** are called **methods**
