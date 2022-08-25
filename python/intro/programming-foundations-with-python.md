@@ -167,7 +167,7 @@ display_info(age = '22', name = 'Amanda')
 
 ```
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (2).png>)
 
 ## Default Arguments
 
@@ -328,29 +328,86 @@ print_variable()
 
 運作的概念上，在
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (3).png>)
 
 我們在  `print_variable()` function 內呼叫 `print_variable()` function 他自己，因此會不斷循環，這是一個無限 recursion 的案例，有幾件事情我們需要知道。
 
 1. 雖然我們一直在 call `print_variable()` function，但這些 functions 其實不同。
 2. 因為在 function 內的 variable 是 local variable， `text` variable 在每個 `print_variable()` function 內都是 local 的。
 
+![](<../../.gitbook/assets/image (4).png>)
+
+## Object-oriented Programming (OOP)
+
+Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很受歡迎的技術。
+
+我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
+
+![](<../../.gitbook/assets/image (1).png>)
+
+想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
+
+![](<../../.gitbook/assets/image (5).png>)
+
+由於這些資料和 function 有關聯性，最好是把他們當成 single entity，我們可以透過物件導向來解決這個問題。接下來我們用物件來解決這個這個問題：
+
+
+
+### Classes and Objects
+
+建立物件有 2 個步驟：
+
+1. 定義 class
+2. 從定義中創造物件
+
+### Define a Class
+
+To solve the problem mentioned in the last page, we will first define a class named **Student**.
+
+```python
+# create a class
+class Student:
+    pass
+```
+
 ![](../../.gitbook/assets/image.png)
 
-## Classes and Objects
+This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
+
+One thing to remember about classes is that they cannot store data. We can store data after we create objects from the class
+
+**Think of a class as a blueprint of a house. It contains all the details about the floors, doors, windows etc. Based on these descriptions we build the house. The actual physical house is the object.**
+
+Now, let's see the part of creating objects.
 
 
 
-There are two steps involved in creating objects:
+### Creating Objects
 
-1. Define a class
-2. Create objects from the class
-
+Once we define a class, we can create as many objects as we want from the class.
 
 
 
+![](<../../.gitbook/assets/image (3).png>)
 
-When working with classes and objects,
+```
+```
+
+And, we store data in objects (not classes).
+
+In the image, we have created objects `student1` and `student2` from the `Student` class.
+
+All the objects of this `Student` class will have the `name` variable and the `score` variable, and can use the `check_pass_fail()` function.
+
+
+
+## Attributes and Methods
+
+
+
+在定義 classes 和物件的時候
 
 * **variables** are called **attributes**
 * **functions** are called **methods**
+
+當我們在談論物件導向，我們會用 attribute 和 method 這些專有名詞。
