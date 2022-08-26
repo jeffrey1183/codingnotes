@@ -390,12 +390,24 @@ Once we define a class, we can create as many objects as we want from the class.
 
 ![](<../../.gitbook/assets/image (3).png>)
 
-```
+```python
+# create a class
+class Student:
+    pass
+
+# outside the class
+# create objects of Student
+student1 = Student()
+student2 = Student()
 ```
 
-And, we store data in objects (not classes).
+上面是我們如何用 class 建立物件， `student1` 和 `student2` 都是`Student` class 的物件。然後 data 是存在 object 裡，不是存在 class。
 
-In the image, we have created objects `student1` and `student2` from the `Student` class.
+
+
+
+
+
 
 All the objects of this `Student` class will have the `name` variable and the `score` variable, and can use the `check_pass_fail()` function.
 
@@ -407,7 +419,81 @@ All the objects of this `Student` class will have the `name` variable and the `s
 
 在定義 classes 和物件的時候
 
-* **variables** are called **attributes**
-* **functions** are called **methods**
+* **variables** 稱作 **attributes**
+* **functions** 稱作 **methods**
 
 當我們在談論物件導向，我們會用 attribute 和 method 這些專有名詞。
+
+下面是手動增加 attributes 到物件的寫法：
+
+```python
+class Student:
+    pass
+ 
+# create objects
+student1 = Student()
+ 
+# add attributes
+student1.name = 'Harry'
+student1.score = 85
+ 
+# print attributes of student1
+print(student1.name)
+print(student1.score)
+```
+
+在這裡 `student1.name = 'Harry'` 是把 name attribute 加進 `student1` object。同樣 `student1.score` 把 `score` attribute 加進 object。但這不是最合適的方法。
+
+## Adding Methods
+
+如同我們先前提到的，在物件導向的世界 methods 是指 function，下面我們一樣用 `Student` class 的案例做示範：
+
+```python
+class Student:
+ 
+    # add a method to check pass/fail
+    def check_pass_fail(self):
+        if self.score >= 40:
+            return True
+        else:
+            return False
+ 
+# create objects
+student1 = Student()
+ 
+# add attributes
+student1.name = 'Harry'
+student1.score = 85
+```
+
+這邊我們在 Student class 內寫了 `check_pass_fail()` 這個 method，現在任何由student class 創造的物件都可以用這個 method。
+
+第一個要注意當我們在定義 methods，我們一定要用 `self` 當第一個 argument，因為我們會用物件呼叫 method，像`student1.check_pass_fail()`裡的 `student1` object 會自動傳 `check_pass_fail()` method，  `self` argument 代表 object。
+
+
+
+When we define methods, we must use `self` as the first argument. It's because we are calling the method using the object, `student1.check_pass_fail()`. This `student1` object is automatically passed to the `check_pass_fail()` method and the `self` argument will be this object.
+
+{% hint style="info" %}
+**Remember:** We must always use `self` as the first argument in the function definition. This `self` takes the value of the object calling it.
+{% endhint %}
+
+
+
+第二個，在 `check_pass_fail()` method 內的 `self.score`會怎麼運作呢？
+
+因為 `self` 在 `check_pass_fail()` method 裡代表 `student1` object 這個值， `self.score` 等於  `student1.score` 在這個案例是 85，這就是為何程式可以運作而沒有 error。從下面的說明來看比較清楚：
+
+![](<../../.gitbook/assets/image (6).png>)
+
+### Adding Attributes in a Proper Way
+
+As we have previously mentioned, adding attributes to objects is not a good practice.
+
+Python offers a much more elegant way of defining attributes when we create objects. For that, we use the special `__init__()` method.
+
+The `__init__()` method is a special method that is called automatically when an object is created. Let's take an example.\
+
+
+
+
