@@ -343,7 +343,7 @@ Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很�
 
 我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (4).png>)
 
 想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
 
@@ -424,6 +424,10 @@ All the objects of this `Student` class will have the `name` variable and the `s
 
 當我們在談論物件導向，我們會用 attribute 和 method 這些專有名詞。
 
+
+
+### Adding Attributes
+
 下面是手動增加 attributes 到物件的寫法：
 
 ```python
@@ -442,7 +446,9 @@ print(student1.name)
 print(student1.score)
 ```
 
-在這裡 `student1.name = 'Harry'` 是把 name attribute 加進 `student1` object。同樣 `student1.score` 把 `score` attribute 加進 object。但這不是最合適的方法。
+在這裡 `student1.name = 'Harry'` 是把 name attribute 加進 `student1` object。同樣 `student1.score` 把 `score` attribute 加進 object。
+
+但這不是最好的方法，下面會再介紹。
 
 ## Adding Methods
 
@@ -488,12 +494,111 @@ When we define methods, we must use `self` as the first argument. It's because w
 
 ### Adding Attributes in a Proper Way
 
-As we have previously mentioned, adding attributes to objects is not a good practice.
+Python 提供很多種更好的方式去定義 attribute 當我們創建 object 的時候，這邊是透過 `__init__()` method。
 
-Python offers a much more elegant way of defining attributes when we create objects. For that, we use the special `__init__()` method.
+這個 `__init__()` method 是當 object 建立時會自動呼叫的 special method，我們來看例子：
 
-The `__init__()` method is a special method that is called automatically when an object is created. Let's take an example.\
+```python
+class Test:
+    def __init__(self):
+        print('Hello there')
+ 
+test1 = Test()
+test2 = Test()
+
+
+#Output
+#Hello there
+#Hello there
+```
+
+程式的運作上，當建立 `test1` object 的時候， `__init__()` method 會被呼叫， `__init__()` method 內的 self argument 拿 `test1` object 當作值，test2 object 建立的時候也是一樣。
+
+接著我們把 attributes 加進 init method
+
+```python
+class Student:
+ 
+    # adding the __init__() method
+    def __init__(self, name, score):
+       self.name = name
+       self.score = score
+ 
+    # add a method to check pass/fail
+    def check_pass_fail(self):
+        if self.score >= 40:
+            return True
+        else:
+            return False
+ 
+# create object
+student1 = Student('Harry', 85)
+ 
+# calling this method using student1
+did_pass = student1.check_pass_fail()
+print(f'Did {student1.name} pass?', did_pass)
+
+
+#Ouput
+#Did Harry pass? True
+
+```
+
+在上面的程式中，當我們創建 object 的時候，會自動呼叫 `__init__()` method，在 method 內：
+
+* `self` 會拿  `student1`物件作為值
+* &#x20;`name` argument 會是 `'Harry'`
+* &#x20;`score` argument 會是 `85`
+
+然後 `name` 會存在 `self.name`，因為 name 代表 `object1` ，物件1 的 name argument 會是 `'Harry'`
+
+\
+
+
+![](<../../.gitbook/assets/image (7).png>)
+
+假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
 
 
+## Using Objects as Arguments
 
+objects `是可以當成` argument 放入  method 內，請看下面案例：
+
+<pre class="language-python"><code class="lang-python">class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+ 
+    def print_person_attributes(self, person):
+        print(self.name)    # Ana
+        print(self.age)     # 21
+        print(person.name)    # Sara
+        print(person.age)    # 20
+ 
+# create an object
+person1 = Person('Ana', 21)
+ 
+# create another object
+person2 = Person('Sara', 20)
+ 
+# calling print_persons_attributes() using person1 object
+# person2 is used as an argument
+person1.print_person_attributes(person2)
+
+#Output
+#Ana
+<strong>#21
+</strong>#Sara
+#20</code></pre>
+
+
+
+* 在 `print_persons_attributes()`裡的`self` 是 `person1` ，因為我們呼叫時候的 object 是用 `person1`，然而  `person` argument 我們是用`person2`當作 argument 放進去。
+* 因此當我們print `self.name` 和 `self.age`, ，我們獲得的 attributes 變數是 `person1`的，當我們印 `person.name` 和 `person.age`，我們獲得的 attributes 是 `person2的。`
+
+`圖解是這樣：`
+
+![](<../../.gitbook/assets/image (1).png>)
+
+``
