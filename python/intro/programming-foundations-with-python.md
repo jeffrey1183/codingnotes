@@ -69,7 +69,7 @@ print(square_numbers)
 
 ```
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 還可以加上 condition
 
@@ -388,7 +388,7 @@ Once we define a class, we can create as many objects as we want from the class.
 
 
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (3).png>)
 
 ```python
 # create a class
@@ -401,7 +401,7 @@ student1 = Student()
 student2 = Student()
 ```
 
-上面是我們如何用 class 建立物件， `student1` 和 `student2` 都是`Student` class 的物件。然後 data 是存在 object 裡，不是存在 class。
+上面是我們如何用 class 建立物件， `student1` 和 `student2` 都是`Student` class 的物件。然後 data 是存在 object 裡，不是存在 class。要確認 2 個物件有沒有一樣，可以用 id function。
 
 
 
@@ -490,7 +490,7 @@ When we define methods, we must use `self` as the first argument. It's because w
 
 因為 `self` 在 `check_pass_fail()` method 裡代表 `student1` object 這個值， `self.score` 等於  `student1.score` 在這個案例是 85，這就是為何程式可以運作而沒有 error。從下面的說明來看比較清楚：
 
-![](<../../.gitbook/assets/image (6).png>)
+![](<../../.gitbook/assets/image (6) (1).png>)
 
 ### Adding Attributes in a Proper Way
 
@@ -555,7 +555,7 @@ print(f'Did {student1.name} pass?', did_pass)
 \
 
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
@@ -599,6 +599,74 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
+![](<../../.gitbook/assets/image (2).png>)
+
+如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
+
+Python 已經存在定義的內容都是物件，無論是 strings, lists, numbers 或 functions。
+
+**Everything is an object in Python.**
+
+****
+
+## How Do Variables Actually Work?
+
+我們假設了下面一段程式：
+
+```
+number = 5
+```
+
+In our courses, we have been mentioning that this code stores **5** in variable `number`. Technically, it's wrong.
+
+Here, `number` is more like a name tag and it can refer to any object. Currently, it is referring to **5**.
+
+
+
+![](<../../.gitbook/assets/image (6).png>)
+
+Now, if we create another variable `number1` and assign `number` to it, both `number` and `number1` will refer to the same object.
+
+
+
 ![](<../../.gitbook/assets/image (1).png>)
 
-``
+## How Do Variables Actually Work?
+
+這邊要講變數實際上是物件，他的運行概念以下面的 case 做討論。
+
+```python
+list1 = [1, 2, 3]
+ 
+# assign list1 to list2
+list2 = list1 
+ 
+# append an item to list1
+list1.append(4)
+ 
+print(list1)
+print(list2)
+
+
+```
+
+上面的程式中 `list1` 很明顯是 `[1, 2, 3, 4]` 因為我們把 **4** 加進去 `[1, 2, 3]`。比較讓人驚訝的是 `list2` 也是 `[1, 2, 3, 4]`
+
+這是因為我們賦予 `list1` 和 `list2` 等號，他們是一樣的 object，如果我們 check 他們的 id 會發現一樣。
+
+這也是使用 `copy()` method 的原因，複製一個一樣的，但是他們不等於。
+
+```python
+list1 = [1, 2, 3]
+ 
+# assign list1 to list2
+list2 = list1.copy()
+ 
+list1.append(4)
+ 
+print(list1)    # [1, 2, 3, 4]
+print(list2)    # [1, 2, 3]
+
+```
+
+一個物件有什麼 attributes 和 methods 可以用 `dir()` function 列出來。
