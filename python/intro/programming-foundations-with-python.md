@@ -335,7 +335,7 @@ print_variable()
 1. 雖然我們一直在 call `print_variable()` function，但這些 functions 其實不同。
 2. 因為在 function 內的 variable 是 local variable， `text` variable 在每個 `print_variable()` function 內都是 local 的。
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (4) (1).png>)
 
 ## Object-oriented Programming (OOP)
 
@@ -343,7 +343,7 @@ Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很�
 
 我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
 
-![](<../../.gitbook/assets/image (1) (4).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
 
@@ -370,7 +370,7 @@ class Student:
     pass
 ```
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (4).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -388,7 +388,7 @@ Once we define a class, we can create as many objects as we want from the class.
 
 
 
-![](<../../.gitbook/assets/image (3) (3).png>)
+![](<../../.gitbook/assets/image (3) (1).png>)
 
 ```python
 # create a class
@@ -555,7 +555,7 @@ print(f'Did {student1.name} pass?', did_pass)
 \
 
 
-![](<../../.gitbook/assets/image (3).png>)
+![](../../.gitbook/assets/image.png)
 
 假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
@@ -599,7 +599,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (6).png>)
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -623,13 +623,13 @@ Here, `number` is more like a name tag and it can refer to any object. Currently
 
 
 
-![](<../../.gitbook/assets/image (6).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 Now, if we create another variable `number1` and assign `number` to it, both `number` and `number1` will refer to the same object.
 
 
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 ## How Do Variables Actually Work?
 
@@ -670,3 +670,35 @@ print(list2)    # [1, 2, 3]
 ```
 
 一個物件有什麼 attributes 和 methods 可以用 `dir()` function 列出來。
+
+
+
+## Inheritance Introduction
+
+Inheritance 是物件導向蠻重要的概念， Let's create a scenario to understand what inheritance is and what problem it solves.
+
+
+
+### Why Inheritance?
+
+Suppose we need to create a racing game with cars and motorcycles as vehicles.
+
+To solve this problem, we can create two separate classes to handle each of their functionalities.
+
+However, both cars and motorcycles are vehicles and they will share some common attributes and methods.
+
+So instead of creating two independent classes, we can create the **Vehicle** class that shares the common features of both cars and motorcycles. Then, we can derive the **Car** class from this **Vehicle** class.
+
+In doing so, the `Car` class inherits all the attributes and methods of the `Vehicle` class. And, we can add car-specific features in the `Car` class.
+
+Similarly, we can derive the `Motorcycle` class that inherits from the `Vehicle` class. Again, this `Motorcycle` class gets all vehicle-specific attributes and methods from the `Vehicle` class.
+
+
+
+![](<../../.gitbook/assets/image (7).png>)
+
+This is the basic concept of inheritance. Inheritance allows a class (child or derived class) to inherit attributes and methods from another class (parent or base class).
+
+In our example, `Vehicle` is the **parent or base class** and `Car` and `Motorcycle` are **child or derived classes**.
+
+Next, we will learn to implement inheritance in Python.
