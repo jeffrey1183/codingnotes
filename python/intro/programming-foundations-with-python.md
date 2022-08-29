@@ -69,7 +69,7 @@ print(square_numbers)
 
 ```
 
-![](<../../.gitbook/assets/image (2) (1).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 還可以加上 condition
 
@@ -343,11 +343,11 @@ Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很�
 
 我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (5) (1).png>)
 
 由於這些資料和 function 有關聯性，最好是把他們當成 single entity，我們可以透過物件導向來解決這個問題。接下來我們用物件來解決這個這個問題：
 
@@ -370,7 +370,7 @@ class Student:
     pass
 ```
 
-![](<../../.gitbook/assets/image (4).png>)
+![](../../.gitbook/assets/image.png)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -388,7 +388,7 @@ Once we define a class, we can create as many objects as we want from the class.
 
 
 
-![](<../../.gitbook/assets/image (3) (1).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 ```python
 # create a class
@@ -490,7 +490,7 @@ When we define methods, we must use `self` as the first argument. It's because w
 
 因為 `self` 在 `check_pass_fail()` method 裡代表 `student1` object 這個值， `self.score` 等於  `student1.score` 在這個案例是 85，這就是為何程式可以運作而沒有 error。從下面的說明來看比較清楚：
 
-![](<../../.gitbook/assets/image (6) (1).png>)
+![](<../../.gitbook/assets/image (6).png>)
 
 ### Adding Attributes in a Proper Way
 
@@ -555,7 +555,7 @@ print(f'Did {student1.name} pass?', did_pass)
 \
 
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (7).png>)
 
 假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
@@ -599,7 +599,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (6).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -623,13 +623,13 @@ Here, `number` is more like a name tag and it can refer to any object. Currently
 
 
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (9).png>)
 
 Now, if we create another variable `number1` and assign `number` to it, both `number` and `number1` will refer to the same object.
 
 
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 ## How Do Variables Actually Work?
 
@@ -675,30 +675,30 @@ print(list2)    # [1, 2, 3]
 
 ## Inheritance Introduction
 
-Inheritance 是物件導向蠻重要的概念， Let's create a scenario to understand what inheritance is and what problem it solves.
+Inheritance 是物件導向蠻重要的概念，假設我們有一個競賽是要比交通工具的速度，因為汽車和摩托車都是交通工具，透過建立 Vehicle class，他們可以共享一些 attributes 和 methods。
+
+&#x20;`Car` class 會繼承所有 attributes 和 methods 從 `Vehicle` 來，我們會新增汽車特有的功能在 `Car` class 裡。同樣的， `Motorcycle` class 也是繼承`Vehicle` class，再另外設定特有的功能。
 
 
 
-### Why Inheritance?
+![](<../../.gitbook/assets/image (1).png>)
 
-Suppose we need to create a racing game with cars and motorcycles as vehicles.
+這是繼承的基本概念，繼承讓 class 有母子的概念，這個案例中 `Vehicle` 是 **parent 或稱作 base class** ， `Car` 和 `Motorcycle` 都是 **child 或稱作 derived classes。**
 
-To solve this problem, we can create two separate classes to handle each of their functionalities.
+下面的案例中 Animal class，我們 derive 一個叫 `Dog` class。
 
-However, both cars and motorcycles are vehicles and they will share some common attributes and methods.
+```python
+class Animal:
+    def eat(self):
+        print("I can eat")
 
-So instead of creating two independent classes, we can create the **Vehicle** class that shares the common features of both cars and motorcycles. Then, we can derive the **Car** class from this **Vehicle** class.
+# the Dog class is derived from Animal        
+class Dog(Animal):
+    def bark(self):
+        print("I can bark")
+```
 
-In doing so, the `Car` class inherits all the attributes and methods of the `Vehicle` class. And, we can add car-specific features in the `Car` class.
+&#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-Similarly, we can derive the `Motorcycle` class that inherits from the `Vehicle` class. Again, this `Motorcycle` class gets all vehicle-specific attributes and methods from the `Vehicle` class.
+![](<../../.gitbook/assets/image (8).png>)
 
-
-
-![](<../../.gitbook/assets/image (7).png>)
-
-This is the basic concept of inheritance. Inheritance allows a class (child or derived class) to inherit attributes and methods from another class (parent or base class).
-
-In our example, `Vehicle` is the **parent or base class** and `Car` and `Motorcycle` are **child or derived classes**.
-
-Next, we will learn to implement inheritance in Python.
