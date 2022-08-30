@@ -69,7 +69,7 @@ print(square_numbers)
 
 ```
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 還可以加上 condition
 
@@ -328,7 +328,7 @@ print_variable()
 
 運作的概念上，在
 
-![](<../../.gitbook/assets/image (1) (3).png>)
+![](<../../.gitbook/assets/image (1) (3) (1).png>)
 
 我們在  `print_variable()` function 內呼叫 `print_variable()` function 他自己，因此會不斷循環，這是一個無限 recursion 的案例，有幾件事情我們需要知道。
 
@@ -343,11 +343,11 @@ Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很�
 
 我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
 
-![](<../../.gitbook/assets/image (1) (1).png>)
+![](<../../.gitbook/assets/image (1) (3).png>)
 
 想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
 
-![](<../../.gitbook/assets/image (5) (1).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 由於這些資料和 function 有關聯性，最好是把他們當成 single entity，我們可以透過物件導向來解決這個問題。接下來我們用物件來解決這個這個問題：
 
@@ -555,7 +555,7 @@ print(f'Did {student1.name} pass?', did_pass)
 \
 
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (8).png>)
 
 假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
@@ -599,7 +599,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (9).png>)
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -623,13 +623,13 @@ Here, `number` is more like a name tag and it can refer to any object. Currently
 
 
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 Now, if we create another variable `number1` and assign `number` to it, both `number` and `number1` will refer to the same object.
 
 
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 ## How Do Variables Actually Work?
 
@@ -681,7 +681,7 @@ Inheritance 是物件導向蠻重要的概念，假設我們有一個競賽是�
 
 
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (7).png>)
 
 這是繼承的基本概念，繼承讓 class 有母子的概念，這個案例中 `Vehicle` 是 **parent 或稱作 base class** ， `Car` 和 `Motorcycle` 都是 **child 或稱作 derived classes。**
 
@@ -700,5 +700,250 @@ class Dog(Animal):
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-![](<../../.gitbook/assets/image (8).png>)
+![](<../../.gitbook/assets/image (2).png>)
+
+如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
+
+繼承方便我們重複使用一樣的程式，可以節省時間和減少 bug。我們應該要盡量減少重複的 code，因為如果要修改就會改很多地方，容易出錯。
+
+
+
+### 何時使用繼承？
+
+假如我們在做很大的專案，盡可能使用 objects 和 classes，當兩個物件有相關性就可以用繼承，例如：
+
+* **狗** 是一種 **動物**
+* **三角形** 是一種 **多邊形**
+* **學生** 是 **人**
+
+下面是課程中的一個案例：
+
+<pre class="language-python"><code class="lang-python"># create the Person class
+class Person:
+    def __init__(self):
+        person_name = input('Enter name: ')
+        person_age = int(input('Enter age: '))
+        self.name = person_name
+        self.age = person_age
+    
+    def display_info(self):
+        print(f'name: {self.name}')
+        print(f'age: {self.age}')
+
+# derive the Student class from Person
+class Student(Person):
+    # create the __init__() method
+    def __init__(self, student_id):
+        # create id attribute and assign student_id to it
+        self.id = student_id
+        
+        # call the __init__ method of Person using super()
+        super().__init__()
+
+    # create the display_info() method
+    def display_info(self):
+        # call display_info() of Person using super()
+        super().display_info()
+        # print the id attribute
+        print(f'id: {self.id}')
+
+# create an object of Student with 12 as argument
+stu = Student(12)
+
+# call display_info() using the object
+stu.display_info()
+
+#Test Input
+
+#Sophia
+#24
+
+<strong>#Expected Output
+</strong>
+#name: Sophia
+#age: 24
+#id: 12</code></pre>
+
+另一個很漂亮的案例，是做長度的計算，把兩個長度相加，因為 1 feet 是 12 inches，相加後要做換算。裡面有一個 add\_distances 的 method，把輸入的物件相加計算長度。
+
+```python
+class Distance:
+    # initialize feet and inches attributes
+    def __init__(self, feet, inches):
+        self.feet = feet
+        self.inches = inches
+    
+    def add_distances(self, distance):
+        result_inches = self.inches + distance.inches
+        result_feet = self.feet + distance.feet
+        
+        # while inch is 12 or greater,
+        # increase feet by 1 and decrease inches by 12
+        while (result_inches >= 12):
+            result_feet = result_feet + 1
+            result_inches = result_inches - 12 
+            
+        # create an object of Distance
+        result_distance = Distance(result_feet, result_inches)
+        return result_distance
+        
+# create distance1 object
+distance1 = Distance(12, 8)
+
+# create distance2 object
+distance2 = Distance(10, 6)
+
+# call add_distances using distance1 object
+# distance2 is used as argument
+result = distance1.add_distances(distance2)
+print(f'Result distance: {result.feet} ft {result.inches} inches')
+```
+
+## Errors and Exceptions
+
+在寫程式的過程中會遇到很多 error，可分成兩種類型：
+
+**1. 語法錯誤(Syntax errors)**
+
+像沒有引號或冒號，或是縮排有問題，下面是沒有加冒號：
+
+```python
+if 5 > 3
+    print('5 is greater than 3')
+
+```
+
+**2. 例外情況(Exception errors)**
+
+雖然語法正確，但 Python 有些例外情況，可以分成下面幾種：
+
+像是不能除以 0，ZeroDivisionError
+
+```python
+result = 5/0
+print(result)
+```
+
+index 超出 sequence 範圍(list, tuple, string etc.)，IndexError Exception
+
+```python
+numbers = [2, 8, 5]
+print(numbers[4])  
+```
+
+在 dictionary 內找不到 key 值，KeyError Exception
+
+```python
+person = {'name': 'Struat', age: 30}
+# raises KeyError Exception
+print(person['profession']) 
+```
+
+function 輸入的變數類型有錯，ValueError Exception。像下面的例子是 math.sqrt 不能吃字串。
+
+```python
+import math
+ 
+# raises TypeError Exception
+result = math.sqrt('Hello')
+print(result)
+```
+
+## Exception Handling
+
+上面我們看到各種 exception 會發生，程式會突然跑出 error message。實際上我們不會讓預設的 error message 顯示出來，而是客製化訊息或是執行其他程式去解決，我們稱作 exception handling，我們用 `try...except` block 去解決，語法如下：
+
+```python
+try:
+    # code that may cause exception
+except:
+    # code to run when exception occurs
+```
+
+&#x20;`try` block 就把原本想執行的 code 寫進去，如果有 exception 出現，程式會跳到 `except` block，下面有個案例：
+
+```python
+try:
+    numerator = int(input("Enter numerator: "))
+    denominator = int(input("Enter denominator: "))
+ 
+    result = numerator/denominator
+ 
+    print(result)
+except:
+    print("Denominator cannot be 0. Try again.")
+
+```
+
+## Handling Specific Exception
+
+除了上面的寫法外，還可以指定特定的 except 去處理，像下面的寫法：
+
+```python
+try:
+    numerator = int(input("Enter numerator: "))
+    denominator = int(input("Enter denominator: "))
+ 
+    result = numerator/denominator
+    print(result)
+    
+    my_list = [1, 2, 3]
+    index = int(input("Enter index: "))
+ 
+    print(my_list[index])
+ 
+# if ZeroDivisonError exception occurs,
+# run this code
+except ZeroDivisionError:
+    print("Denominator cannot be 0. Try again.")
+ 
+# if IndexError exception occurs, run this code
+except IndexError:
+    print("Index is wrong.")
+
+```
+
+如果是兩種 exception 都發生，會先跳到第一個發生的。
+
+```python
+try:
+    result = 5/0
+    print(result)
+    
+    my_list = [1, 2, 3]
+    print(my_list[20])
+
+except ZeroDivisionError:
+    print("Denominator cannot be 0.")
+
+except IndexError:
+    print("Index is wrong.")
+```
+
+&#x20;`try` statement 還有一個可加可不加的 `finally` block，他可以不管 exception 有沒有發生都執行，看下面的案例：
+
+```python
+try:
+    print(1/0)
+except:
+    print("Wrong denominator")
+finally:
+    print("Always printed")
+    
+#Wrong denominator
+#Always printed
+```
+
+即使 try block 沒有發生 exception， `except` block 會跳過，但 `finally` block 還是會執行。使用的時機點會是即使有 exception 發生，還是要執行的事，例如我的程式要跟外部的檔案互動，如果 exception 發生我要關閉檔案，在這種情況下，我們把關閉檔案的程式放在 finally block 裡。
+
+最後下面這個案例，他並非不執行任何程式，他跑會 finally 裡面程式。
+
+```python
+try:
+    numbers = [1,2, 3]
+except:
+    print('Something is wrong.')
+finally:
+    print('Please run this.')
+```
 
