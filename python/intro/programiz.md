@@ -182,7 +182,7 @@ Module 是一個檔案，裡面包含很多可以用在 app 內的 function，�
 
 程式上的寫法如下：
 
-![](<../../.gitbook/assets/image (1) (1).png>)
+![](<../../.gitbook/assets/image (1) (1) (2).png>)
 
 要想知道更多 math module 裡的 function，可以搜尋 Python math module。如果只要 import 一些 function，我們可以用  `from...import` ，像下面只有 import sqrt 和 floor 兩個 function。
 

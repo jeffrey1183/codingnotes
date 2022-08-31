@@ -69,7 +69,7 @@ print(square_numbers)
 
 ```
 
-![](<../../.gitbook/assets/image (2) (1).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 還可以加上 condition
 
@@ -328,7 +328,7 @@ print_variable()
 
 運作的概念上，在
 
-![](<../../.gitbook/assets/image (1) (3) (1).png>)
+![](<../../.gitbook/assets/image (1) (3).png>)
 
 我們在  `print_variable()` function 內呼叫 `print_variable()` function 他自己，因此會不斷循環，這是一個無限 recursion 的案例，有幾件事情我們需要知道。
 
@@ -343,11 +343,11 @@ Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很�
 
 我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
 
-![](<../../.gitbook/assets/image (1) (3).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (5) (1).png>)
 
 由於這些資料和 function 有關聯性，最好是把他們當成 single entity，我們可以透過物件導向來解決這個問題。接下來我們用物件來解決這個這個問題：
 
@@ -370,7 +370,7 @@ class Student:
     pass
 ```
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (1).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -388,7 +388,7 @@ Once we define a class, we can create as many objects as we want from the class.
 
 
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (3).png>)
 
 ```python
 # create a class
@@ -555,7 +555,7 @@ print(f'Did {student1.name} pass?', did_pass)
 \
 
 
-![](<../../.gitbook/assets/image (8).png>)
+![](<../../.gitbook/assets/image (7).png>)
 
 假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
@@ -599,7 +599,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -623,13 +623,13 @@ Here, `number` is more like a name tag and it can refer to any object. Currently
 
 
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 Now, if we create another variable `number1` and assign `number` to it, both `number` and `number1` will refer to the same object.
 
 
 
-![](<../../.gitbook/assets/image (4).png>)
+![](../../.gitbook/assets/image.png)
 
 ## How Do Variables Actually Work?
 
@@ -681,7 +681,7 @@ Inheritance 是物件導向蠻重要的概念，假設我們有一個競賽是�
 
 
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (8).png>)
 
 這是繼承的基本概念，繼承讓 class 有母子的概念，這個案例中 `Vehicle` 是 **parent 或稱作 base class** ， `Car` 和 `Motorcycle` 都是 **child 或稱作 derived classes。**
 
@@ -700,7 +700,7 @@ class Dog(Animal):
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
 
@@ -947,3 +947,155 @@ finally:
     print('Please run this.')
 ```
 
+
+
+## Managing Files Project
+
+
+
+We know about computer files. In this lesson, we will learn to perform file operators such as reading content from files and writing content to files.
+
+There are three steps involved in working with files:
+
+1. Opening a file
+2. Perform file operators (read and write files)
+3. Close the file
+
+Let's cover each of these topics in detail.
+
+By the way, our Python interpreter doesn't support working with files at the moment, so we have to rely on images.
+
+```python
+f = open('message.txt')
+```
+
+We can also explicitly specify the **mode** by passing the second argument.
+
+```python
+f = open('message.txt', 'r')
+```
+
+Here, `'r'` means the file is opened for reading.
+
+
+
+After we open a file, we can read its content using the `read()` method of the file object. Let's see an example.
+
+```python
+# open a file
+f = open('message.txt', 'r')
+
+# read the file
+content = f.read()
+print(content)
+```
+
+After we have opened the file, we have used the file object, `f`, to call the `read()` method. Now, the contents of the file will be in the `content` variable.
+
+
+
+### Closing the file
+
+After we perform file operation, we should always close the file; it's a good programming practice.
+
+To close the file, we use the `close()` method of the file object.
+
+```python
+# open a file
+f = open('message.txt', 'r')
+
+# read the file
+content = f.read()
+print(content)
+
+# close the file
+f.close()
+```
+
+## Reading Specific Number of Characters
+
+We can pass an optional argument to the `read()` method specifying the number of characters we want to read.
+
+Let's read the first **5** characters from the **message.txt** file.
+
+```python
+f = open('message.txt', 'r')
+
+# read the first 5 characters
+content = f.read(5)
+print(content)
+
+f.close()
+
+#Output
+#I lov
+```
+
+Now if we again read the file using the same file object, it starts reading the file from the **6th** character.
+
+如果延續上面的 argument 的 5，我們把 argument 改成 13，程式會從第 6 個字開始，印出接下來的 13 個字。
+
+```python
+f = open('message.txt', 'r')
+
+# read the first 5 characters
+content = f.read(5)
+print(f'result1: {content}')
+
+# read the next 13 characters
+content = f.read(13)
+print(f'result2: {content}')
+
+f.close()
+
+
+#Output
+#result1: I lov
+#result2: e programming
+```
+
+## try...finally in Files
+
+上面的案例就很適合用 try...finally 的語法改寫，因為關閉檔案是必須的。
+
+```python
+try:
+    f = open('message.txt', 'r')
+    content = f.read()
+    print(content)
+
+finally:
+    # close the file
+    f.close()
+```
+
+甚至更好的寫法是用`with...open` 語法：
+
+```python
+with open('message.txt', 'r') as f:
+    content = f.read()
+    print(content)
+    
+```
+
+## Writing to Files
+
+To write contents to a file, we must open it in the write mode using `'w'` as the second argument to the `open()` function.
+
+```python
+# open file for writing
+with open('python.txt', 'w') as f:
+    # perform file operation
+
+```
+
+Here, the `python.txt` file is opened for writing.
+
+There are two things we need to remember while writing to a file.
+
+* If we try to open a file that doesn't exist, a new file is created.
+* If a file already exists, its content is erased, and new content is added to the file.
+
+Next, we will use the `write()` method to write contents to a file.
+
+Next: Example: Write to Files\
