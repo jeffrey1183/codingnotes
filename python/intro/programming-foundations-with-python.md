@@ -629,7 +629,7 @@ Now, if we create another variable `number1` and assign `number` to it, both `nu
 
 
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (3).png>)
 
 ## How Do Variables Actually Work?
 
@@ -700,7 +700,7 @@ class Dog(Animal):
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (1).png>)
 
 如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
 
@@ -1080,7 +1080,7 @@ with open('message.txt', 'r') as f:
 
 ## Writing to Files
 
-To write contents to a file, we must open it in the write mode using `'w'` as the second argument to the `open()` function.
+如果要寫入內容到檔案中，打開檔案時要用 `'w'` 作為第二個 `open()` function 的 argument。
 
 ```python
 # open file for writing
@@ -1089,13 +1089,298 @@ with open('python.txt', 'w') as f:
 
 ```
 
-Here, the `python.txt` file is opened for writing.
+寫入檔案時有二件事要記得：
 
-There are two things we need to remember while writing to a file.
+* 如果打開的檔案不存在，會建立新檔案
+* 如果寫入的檔案存在，舊的內容會被刪除，新的內容加入新檔案。
 
-* If we try to open a file that doesn't exist, a new file is created.
-* If a file already exists, its content is erased, and new content is added to the file.
+下面假設 **python.txt** 原本不存在
 
-Next, we will use the `write()` method to write contents to a file.
+```python
+with open('python.txt', 'w') as f:
+    f.write("I like Python.\n")
+    f.write("Files is easy.")
+```
 
-Next: Example: Write to Files\
+在進行完上面的程式碼後，就會產生下面的 python.txt 檔案
+
+![](<../../.gitbook/assets/image (9).png>)
+
+要注意寫入模式會把舊內容覆蓋掉，在這個模式要很小心，像下面的程式就會把舊的內容覆蓋掉。
+
+```python
+with open('py.txt', 'w') as f:
+    f.write('I like Python')
+
+with open('py.txt', 'w') as f1:
+    f1.write('I love Python')
+    
+#Output
+#I love Python
+```
+
+## Appending Content to Files
+
+open() function 的第二個 argument 我們用 'a'，這樣是 append mode 添加模式：
+
+* 如果添加的檔案不存在，會新建一個檔案。
+* 如果添加的檔案已經存在，先前的內容不動，新內容會在從舊內容最後面開始添加。
+
+假設我們有一個檔案叫 python.txt，裡面有 Learning about Python files. 這一行內容。
+
+```python
+# opening file in append mode
+with open('python.txt', 'a') as f:
+    f.write(' Appending data using the same write() method.')
+```
+
+跑了上面程式後，裡面內容就增加了，變成 Learning about Python files. Appending data using the same write() method。
+
+檔案可能在不同資料夾，這時候要寫路徑，像是：
+
+```python
+with open('external/messages.txt', 'r'):
+    f.read()
+```
+
+## Directory Introduction
+
+As we know, a directory (folder) is used to store and organize files and other sub-directories.
+
+In this lesson, we will learn to
+
+* get current directory path
+* change path of directory
+* list all directories and files
+* create new directories
+* rename directories and files
+* delete directories and files
+
+And, we can perform these tasks fairly easily using the `os` module.
+
+## Get Current Directory Path
+
+To get the path to the current directory, we use the `getcwd()` method of the `os` module. For example,
+
+```python
+import os
+
+# print current working directory
+print(os.getcwd())
+```
+
+## Changing Directory
+
+As we know, Python thinks the current directory is the directory containing our Python file.
+
+If we need to change the current working directory, we can use the `chdir()` method of the `os` module.
+
+```python
+import os
+
+# print current working directory
+print('Before CWD =',os.getcwd())
+
+
+# change current working directory
+os.chdir('D:/Projects')
+
+# print current working directory
+print('After CWD =', os.getcwd())
+
+#Output
+#Before CWD = c:\Users\lenovo\Desktop\Files
+#After CWD = D:\Projects
+```
+
+## List All Directories and Files
+
+We can list all files and subdirectories inside a directory by using the `listdir()` method of the os module. For example,
+
+```python
+import os
+print(os.listdir())
+
+#Output
+#['external', 'main.py']
+```
+
+This code returns a list of all the files and subdirectories in the current working directory.
+
+### Get Files and Directories of a Specific Path
+
+We can get files and directories of a specific location by passing the path argument inside the `listdir()` method. For example,
+
+```python
+import os
+print(os.listdir('D:/Projects'))
+
+#Output
+#[Scraper, test.js, GoogleDocsAPI]
+```
+
+The above code lists all the files and directories located inside `D:/Projects`.
+
+By the way, **listdir** means **list directories**.
+
+
+
+## Make a New Directory
+
+We can create a new directory using the `mkdir()` method of the `os` module.
+
+```python
+import os
+os.mkdir('test')
+```
+
+This code creates a new directory named **test** in the current directory.
+
+### Creating a New Directory in a Specified Path
+
+```python
+import os
+
+# change current working directory
+os.chdir('D:/Projects')
+
+os.mkdir('test')
+```
+
+Here, we have changed the current working directory to `D:/Projects` before creating the folder. Hence, this code creates a directory named **test** inside the **Projects** directory (which is located
+
+inside the **D** drive).
+
+By the way, **mkdir** means **make directory**.
+
+## Renaming a Directory or a File
+
+We can rename any directory or file using the `rename()` method of the `os` module. Its syntax is:
+
+```python
+os.rename(old_name, new_name)
+```
+
+### Source Code
+
+```python
+import os
+
+# rename directory
+os.rename('test', 'new')
+```
+
+Here, this code changes the name of the **test** directory we previously created to **new**.
+
+## Deleting a Directory or a File
+
+We can use the `remove()` method of the `os` module to remove a file.
+
+```python
+import os
+
+os.remove('hello.txt')
+```
+
+This code deletes the **hello.txt** file.
+
+Similarly, we use the `rmdir()` method of the `os` module to remove a directory.
+
+```python
+import os
+
+os.rmdir('new')
+```
+
+This code removes the **new** directory we previously created. One thing we need to remember when removing a directory is that the directory must be empty. Otherwise, an exception will be raised.
+
+By the way, **rmdir** means **remove directory**.
+
+
+
+
+
+## Deleting a Directory or a File
+
+We can use the `remove()` method of the `os` module to remove a file.
+
+```python
+import os
+
+os.remove('hello.txt')
+```
+
+This code deletes the **hello.txt** file.
+
+Similarly, we use the `rmdir()` method of the `os` module to remove a directory.
+
+```python
+import os
+
+os.rmdir('new')
+```
+
+This code removes the **new** directory we previously created. One thing we need to remember when removing a directory is that the directory must be empty. Otherwise, an exception will be raised.
+
+移除的資料夾一定要是空的。
+
+By the way, **rmdir** means **remove directory**.
+
+
+
+## Creating Modules
+
+Let's start with what we already know.
+
+We can import modules in our program and use methods and constants inside them. For example,
+
+```python
+import math as m
+ 
+# call sqrt() to get square root
+result = m.sqrt(9)
+print(f'result = {result}')
+ 
+# get the pi constant
+pi = m.pi
+print(f'pi = {pi}')
+
+#Output
+#result = 3.0
+#pi = 3.141592653589793
+```
+
+Here, we have imported the `math` module and renamed it as `m` using this statement:
+
+把 math 當作 m
+
+```python
+import math as m
+```
+
+Then, we used the `sqrt()` method of the `math` module using `m.sqrt()`. Similarly, we have used the `pi` constant of the module using `m.pi`.
+
+Next, we will learn what a module is.
+
+## What is a Module?
+
+A module is a file containing a set of functions and statements. It's similar to other Python files that end with the **.py** file extension.
+
+
+
+
+
+### Create a Custom Module
+
+Let's suppose,
+
+* We created a file named **test.py** and inside this file, we created a function named `greet()`.
+* This **test.py** in itself is a module.
+* Now to import this module from another file, we use the `import test` statement. Then, to access the `greet()` function, we use `test.greet()`.
+
+![](https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-5.3.1.png)
+
+Next, we will see an example of custom modules.
+
+
+
