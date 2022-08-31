@@ -700,7 +700,7 @@ class Dog(Animal):
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-![](<../../.gitbook/assets/image (3) (1).png>)
+![](<../../.gitbook/assets/image (3) (4).png>)
 
 如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
 
@@ -1104,7 +1104,7 @@ with open('python.txt', 'w') as f:
 
 在進行完上面的程式碼後，就會產生下面的 python.txt 檔案
 
-![](<../../.gitbook/assets/image (9).png>)
+![](../../.gitbook/assets/image.png)
 
 要注意寫入模式會把舊內容覆蓋掉，在這個模式要很小心，像下面的程式就會把舊的內容覆蓋掉。
 
@@ -1382,5 +1382,183 @@ Let's suppose,
 
 Next, we will see an example of custom modules.
 
+## Example: Calculator Using Custom Modules
+
+Let's first create a file named **calculator.py** with these function:
+
+```python
+def add(a, b):
+    return a + b
+    
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+    
+def divide(a, b):
+    return a / b 
+```
+
+This **calculator.py** file itself is a module. Now, let's import this file from another file named **main.py**.
+
+```python
+import calculator
+
+result1 = calculator.add(2, 3)
+print(result1)   # 5
+
+result3 = calculator.multiply(10, 3)
+print(result3)   # 30
+```
+
+After we use this statement `import calculator`, we can use all the functions and statements defined inside the **calculator** module.
+
+Then, we have used the `add()` function of the **calculator.py** file using `calculator.add()`.
+
+Similarly, we have used the `multiply()` function of the **calculator.py** file using `calculator.multiply()`.
 
 
+
+## Why use Modules?
+
+There are many advantages to creating custom modules. The two most important benefits of using modules are:
+
+**To maintain code**
+
+Modules help to divide our large project into smaller files. This helps to maintain our code because we can only focus on one file (module) at a time.
+
+**Reusability**
+
+Once we define a module, we can import and use the same module from different parts of the project.
+
+
+
+## Python Package
+
+上面我們學會如何用 module，除了 module，package 也會幫我們把大專案拆成小的 component。
+
+假設我們在開發一個大專案，要簡化專案，我們可以分成好幾個 module，接著我們要把相關的 module group 起來，才會整齊，Python package 讓我們可以完成這件事。
+
+### Practical Scenario
+
+假設我們在開發一個遊戲，裡面有好多物件，他們可能隸屬於不同 modules。
+
+* player.py
+* boss.py
+* gun.py
+* knife.py
+
+如果我們把 module 都放在同一個資料夾，看起來會有點亂，所以我們用 package 去分門別類成下面這張圖：
+
+![](https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-5.4.1.png)
+
+* player 和 boss module 放在 characters package 內。
+* gun 和 knife module 放在 weapons package 內。
+* character package 和 weapons package 都在 game package 內
+
+這樣專案更整齊有架構。
+
+## Creating Packages
+
+在實作上我們用 **characters** package 為例，
+
+### Creating the Game Package
+
+要創造 package：
+
+* 先建立一個 **game 的資料夾**
+* 在資料夾內建立 \_\_init\_\_.py 的檔案，這個特別的檔案會告訴 Python 這個資料夾是一個 Python package。
+* 我們先讓 **\_\_init\_\_.py** 維持空的
+* 在 game package 內我們要建立 **characters** package，因此我們在 game 資料夾新增一個 characters 的資料夾。
+* 為了告訴 **game** 資料夾這也是 package，我們新增 **\_\_init\_\_.py** 檔案在裡面。
+* 在 character 資料夾內，我們新增 **player.py** 和 **boss.py** module。
+* 在 game 資料夾外，我們新增 **main.py，可以 access 這些** package components。
+
+整體架構像這樣：
+
+![](https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-5.4.2.png)
+
+## Adding Python Code
+
+Now, let's add code inside our Python files.
+
+Inside **player.py**:
+
+```python
+def get_player_info():
+    print('I am the main player.')
+```
+
+Inside **boss.py**:
+
+```python
+def get_boss_info():
+    print('I am the enemy player.')
+```
+
+We have added simple functions to illustrate Python packages. However, while developing large programs, these modules might contain classes and multiple functions.
+
+### Importing Modules Inside a Package
+
+Now, let's access the modules inside the **game** package from the **main.py** file (this file exists outside of the **game** directory). Let's access the `player` module first.
+
+```python
+# importing the player module
+import game.characters.player as p1
+
+# call get_player_info()
+p1.get_player_info()
+```
+
+**Output**
+
+```
+I am the main player.
+```
+
+Here is how this code works:
+
+1\. `import game.characters.player as p1`
+
+This code imports the **player** module and renamed it to `p1`. Since this module lies inside packages, we also have to specify the path to the module.
+
+2\. `p1.get_player_info()`
+
+Then, we have called the `get_player_info()` function of the `player` module using this code.
+
+We can import the `boss` module in a similar way.
+
+
+
+
+
+## Use of \_\_init\_\_.py file
+
+Now let's use the **\_\_init\_\_.py** file we previously created.
+
+This is a special file that runs automatically when we import a package. Let's add a simple print statement inside the **\_\_init\_\_.py** file of the **game** directory.
+
+```python
+print('Initializing game features')
+```
+
+Now, if we run the **main.py** file with this code:
+
+```python
+# importing the player module
+import game.characters.player as player
+
+# call get_player_info()
+player.get_player_info()
+```
+
+The **\_\_init\_\_.py** file is automatically executed. Then, the **main.py** file is executed.
+
+**Output**
+
+```
+Initializing game features
+I am the main player.
+I am the enemy player.
+```
