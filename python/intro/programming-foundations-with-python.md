@@ -370,7 +370,7 @@ class Student:
     pass
 ```
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (4).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -629,7 +629,7 @@ Now, if we create another variable `number1` and assign `number` to it, both `nu
 
 
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (9).png>)
 
 ## How Do Variables Actually Work?
 
@@ -700,7 +700,7 @@ class Dog(Animal):
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-![](<../../.gitbook/assets/image (3) (4).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
 
@@ -1479,6 +1479,8 @@ Once we define a module, we can import and use the same module from different pa
 
 ![](https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-5.4.2.png)
 
+新增 **\_\_init\_\_.py** 的檔案會告訴 Python 這個資料夾是 package。
+
 ## Adding Python Code
 
 Now, let's add code inside our Python files.
@@ -1535,15 +1537,13 @@ We can import the `boss` module in a similar way.
 
 ## Use of \_\_init\_\_.py file
 
-Now let's use the **\_\_init\_\_.py** file we previously created.
-
-This is a special file that runs automatically when we import a package. Let's add a simple print statement inside the **\_\_init\_\_.py** file of the **game** directory.
+之前在 game 資料夾新增的 **\_\_init\_\_.py** 檔案是一個特別的檔案，會自動在 import package 的時候執行，我們在裡面新增一行 print statement。
 
 ```python
 print('Initializing game features')
 ```
 
-Now, if we run the **main.py** file with this code:
+現在我們在 **main.py** 檔案跑這些程式：
 
 ```python
 # importing the player module
@@ -1553,7 +1553,7 @@ import game.characters.player as player
 player.get_player_info()
 ```
 
-The **\_\_init\_\_.py** file is automatically executed. Then, the **main.py** file is executed.
+&#x20;**\_\_init\_\_.py** 檔案會自動執行，然後再執行 **main.py** 檔案內的程式。
 
 **Output**
 
@@ -1562,3 +1562,102 @@ Initializing game features
 I am the main player.
 I am the enemy player.
 ```
+
+## Python pip
+
+&#x20;`pip` 是標準的 package manager，用來安裝和管理 packages。當你開始寫進階的專案，我們會用外部的 package，像是 web development 大概會用 Django 或 Flask package。安裝 package 的時候我們會用 `pip`指令，以新增 pandas package 為例，他是一個用來資料分析的熱門 package。
+
+```python
+pip install pandas
+```
+
+跑完 command line 之後，我們可以用 pandas package。
+
+## 剪刀、石頭、布小遊戲
+
+以物件導向為基礎，讓玩家和電腦猜拳拼輸贏。
+
+
+
+### Step 1: Creating a Class
+
+建立一個 class 叫 `Game`
+
+```python
+class Game:
+    pass
+```
+
+這個 class 有 3 個 attributes：
+
+* `user_pick` - 儲存用戶出哪一種
+* `computer_pick` - 儲存電腦出哪一種
+* `result` - 比較用戶和電腦的輸贏，將結果存成 `'win'`, `'lose'` 或 `'draw'` 。
+
+
+
+### Step 2: Get Computer's Pick
+
+* 從 `Game` class 移除 `pass`&#x20;
+* 新增 `__init__()` method
+* 新增 `get_computer_pick` method
+
+```python
+import random
+
+class Game:
+    def __init__(self):
+        # call the get_computer_pick() method 
+        self.computer_pick = self.get_computer_pick()    
+    
+    def get_computer_pick(self):
+        # get random number among 1, 2 and 3
+        random_number = random.randint(1, 3)
+        
+        # possible options 
+        options = {1: 'rock', 2: 'paper', 3: 'scissors'}
+        
+        # return the value present at random_number
+        return options[random_number]
+```
+
+當我們用 `Game` class 新增物件的時候會呼叫 init method，init method 內我們會呼叫 get\__computer\__pick 的 method 拿到剪刀、石頭或布的字串。回傳的值 assign 到 `computer_pick` attribute。
+
+在 get\_computer\_pick() method 內我們先產生一個 random number 介於 1 到 3 assign 到 `random_number` 變數內。接著建立一個  dictionary 他的 key 是 1, 2, 3，他的值是 `'rock'`, `'paper'` 和 `'scissors'` 。然後我們用 `return options[random_number]`  回傳  `'rock'`, `'paper'` 或 `'scissors'` 的字串。
+
+
+
+### Step 3: Get user's Pick
+
+* 在 `__init__()` 內新增 `user_pick` attribute
+* 新增 `get_user_pick` method
+
+```python
+import random
+
+class Game:
+    def __init__(self):
+        # get the computer's pick 
+        self.computer_pick = self.get_computer_pick()
+        
+        # get the user's pick
+        self.user_pick = self.get_user_pick()      
+    
+    def get_computer_pick(self):
+        # get random number among 1, 2 and 3
+        random_number = random.randint(1, 3)
+        
+        # possible options 
+        options = {1: 'rock', 2: 'paper', 3: 'scissors'}
+        
+        # return the value present at random_number
+        return options[random_number]
+
+    def get_user_pick(self):
+        user_pick = input('Enter rock/paper/scissors: ')
+
+        # converting the user's pick to lowercase and returned it
+        return user_pick.lower()
+```
+
+在 \_\_init\_\_() method 呼叫 `get_user_pick()` 獲得的 input assign 到 `user_pick` attribute。在 get\_user\_pick() method 內接收用戶輸入的字串，透過 lower() 轉成小寫回傳回來。
