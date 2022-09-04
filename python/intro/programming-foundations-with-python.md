@@ -62,14 +62,14 @@ print(square_numbers)
 ```python
 numbers = [1, 2, 3, 4]
 
-square_numbers {number: number**2 for number in numbers }
+square_numbers = {number: number**2 for number in numbers }
 
 print(square_numbers)
 
 
 ```
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 還可以加上 condition
 
@@ -141,6 +141,25 @@ print(result)   # 50
 
 
 
+開根號(square roots)
+
+```python
+# create the function
+compute = lambda x,y:x**0.5 + y**0.5
+
+# take two integer inputs
+n1 = int(input())
+n2 = int(input())
+
+# call the function and print the result
+result = compute(n1,n2)
+print(result)
+```
+
+
+
+
+
 ## **Positional arguments**
 
 依照下面案例依順序在 display\_info 放 `name` parameter 和 `age` parameter，我們稱作 positional arguments。
@@ -188,6 +207,21 @@ def greet(message = 'Howdy'):
     print(message)
  
 greet()
+```
+
+另一個案例
+
+```python
+def func(n1 = 10,n2 = 100):
+    print(n1)
+    print(n2)
+
+# take integer input
+n = int(input())
+
+# call the function
+func(n)
+
 ```
 
 ## Default Arguments in print()
@@ -247,7 +281,7 @@ def add_numbers(*numbers):
     # calculate sum of tuple items
     total = 0
     for number in numbers:
-        total = total + number;
+        total = total + number
         
     return total
  
@@ -263,9 +297,11 @@ print(result)    # 35
 
 
 
-## \*\*kwargs
+## Variable Keyword Arguments
 
-kw 是 keyword，arg 是 argument。當然也可以一次傳多個 keyword argument，只要我們在 argument 前加兩個星星 `**` 。
+&#x20;A function can take a variable number of keyword arguments.
+
+\*\*kwargs，kw 是 keyword，arg 是 argument。當然也可以一次傳多個 keyword argument，只要我們在 argument 前加兩個星星 `**` 。
 
 ```python
 def print_info(**person):
@@ -370,7 +406,7 @@ class Student:
     pass
 ```
 
-![](<../../.gitbook/assets/image (1) (4).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -599,7 +635,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (4) (2).png>)
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -629,7 +665,7 @@ Now, if we create another variable `number1` and assign `number` to it, both `nu
 
 
 
-![](<../../.gitbook/assets/image (9).png>)
+![](../../.gitbook/assets/image.png)
 
 ## How Do Variables Actually Work?
 
@@ -1104,7 +1140,7 @@ with open('python.txt', 'w') as f:
 
 在進行完上面的程式碼後，就會產生下面的 python.txt 檔案
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (2).png>)
 
 要注意寫入模式會把舊內容覆蓋掉，在這個模式要很小心，像下面的程式就會把舊的內容覆蓋掉。
 
@@ -1661,3 +1697,325 @@ class Game:
 ```
 
 在 \_\_init\_\_() method 呼叫 `get_user_pick()` 獲得的 input assign 到 `user_pick` attribute。在 get\_user\_pick() method 內接收用戶輸入的字串，透過 lower() 轉成小寫回傳回來。
+
+
+
+
+
+### Step 4: Make User Input a Valid String
+
+* changed the `get_user_pick()` method to take valid input
+
+```python
+import random
+
+class Game:
+    def __init__(self):
+        # get the computer's pick 
+        self.computer_pick = self.get_computer_pick()
+        
+        # get the user's pick
+        self.user_pick = self.get_user_pick()     
+    
+    def get_computer_pick(self):
+        # get random number among 1, 2 and 3
+        random_number = random.randint(1, 3)
+        
+        # possible options 
+        options = {1: 'rock', 2: 'paper', 3: 'scissors'}
+        
+        # return the value present at random_number
+        return options[random_number]
+
+    def get_user_pick(self):
+        
+        # infinite while loop 
+        while True:
+            user_pick = input('Enter rock/paper/scissors: ')
+
+            # convert to lowercase
+            user_pick = user_pick.lower()
+
+            # if user_pick is either rock or paper or scissors,
+            # terminate the loop
+            if user_pick in ('rock', 'paper', 'scissors'):
+                  break
+            else:
+                print('Wrong input!') 
+
+        return user_pick
+```
+
+在 get\_user\_pick() method，我們改寫成 `while` loop，會確認是否用戶輸入的是 `'rock'` 或 `'paper'` 或 `'scissors'`如果是就會 break 掉這個 loop，如果不是就會再次詢問用戶。
+
+
+
+### Step 5: Decide win, lose and draw
+
+* 新增 `result` attribute 到`__init__()` 內
+* 新增 `get_result` method&#x20;
+
+```python
+import random
+
+class Game:
+    def __init__(self):
+        # get the computer's pick 
+        self.computer_pick = self.get_computer_pick()
+        
+        # get the user's pick
+        self.user_pick = self.get_user_pick()
+
+        # get the result of the game
+        self.result = self.get_result()      
+    
+    def get_computer_pick(self):
+        # get random number among 1, 2 and 3
+        random_number = random.randint(1, 3)
+        
+        # possible options 
+        options = {1: 'rock', 2: 'paper', 3: 'scissors'}
+        
+        # return the value present at random_number
+        return options[random_number]
+
+    def get_user_pick(self):
+        
+        # infinite while loop 
+        while True:
+            user_pick = input('Enter rock/paper/scissors: ')
+
+            # convert to lowercase
+            user_pick = user_pick.lower()
+
+            # if user_pick is either rock or paper or scissors,
+            # terminate the loop
+            if user_pick in ('rock', 'paper', 'scissors'):
+                  break
+            else:
+                print('Wrong input!')
+
+        return user_pick
+
+    def get_result(self):
+        # condition for draw
+        if self.computer_pick == self.user_pick:
+            return 'draw'
+        
+        # condition for the user to win
+        elif self.user_pick == 'paper' and self.computer_pick == 'rock':
+            return 'win'
+        elif self.user_pick == 'rock' and self.computer_pick == 'scissors':
+            return 'win'
+        elif self.user_pick == 'scissors' and self.computer_pick == 'paper':
+            return 'win'
+        
+        # in all other conditions, users lose    
+        else:
+            return 'lose'
+```
+
+&#x20;`get_result()` method 主要就是比較 `computer_pick` attribute 和 `user_pick` attribute 回傳值。先設定平局，再把用戶贏的情況列出來，最後其他情況都是輸。
+
+
+
+
+
+### Step 6: Add a Method to Print the result
+
+* 最後新增一個 `print_result()` method
+
+```python
+class Game:
+    def __init__(self):
+        # get the computer's pick 
+        self.computer_pick = self.get_computer_pick()
+        
+        # get the user's pick
+        self.user_pick = self.get_user_pick()
+
+        # get the result of the game
+        self.result = self.get_result()   
+
+def print_result(self):
+    print(f'Computer's pick: {self.computer_pick}')
+    print(f'Your pick: {self.user_pick}')
+    print(f'You {self.result}')
+```
+
+最後完整的程式：
+
+```python
+import random
+
+class Game:
+    def __init__(self):
+        # get the computer's pick 
+        self.computer_pick = self.get_computer_pick()
+        
+        # get the user's pick
+        self.user_pick = self.get_user_pick()
+
+        # get the result of the game
+        self.result = self.get_result()     
+    
+    def get_computer_pick(self):
+        # get random number among 1, 2 and 3
+        random_number = random.randint(1, 3)
+        
+        # possible options 
+        options = {1: 'rock', 2: 'paper', 3: 'scissors'}
+        
+        # return the value present at random_number
+        return options[random_number]
+
+    def get_user_pick(self):
+        
+        # infinite while loop 
+        while True:
+            user_pick = input('Enter rock/paper/scissors: ')
+
+            # convert to lowercase
+            user_pick = user_pick.lower()
+
+            # if user_pick is either rock or paper or scissors,
+            # terminate the loop
+            if user_pick in ('rock', 'paper', 'scissors'):
+                  break
+            else:
+                print('Wrong input!')
+
+        return user_pick
+
+    def get_result(self):
+        # condition for draw
+        if self.computer_pick == self.user_pick:
+            return 'draw'
+        
+        # condition for the user to win
+        elif self.user_pick == 'paper' and self.computer_pick == 'rock':
+            return 'win'
+        elif self.user_pick == 'rock' and self.computer_pick == 'scissors':
+            return 'win'
+        elif self.user_pick == 'scissors' and self.computer_pick == 'paper':
+            return 'win'
+        
+        # in all other conditions, users lose    
+        else:
+            return 'lose'
+
+    def print_result(self):
+        print(f"Computer's pick: {self.computer_pick}")
+        print(f'Your pick: {self.user_pick}')
+        print(f'You {self.result}')
+
+
+# create an object of the Game class
+game = Game()
+game.print_result()
+```
+
+
+
+### Extending the Project
+
+如果我們要讓程式跑5次：
+
+```python
+# putting object creation inside the loop
+for i in range(5):
+   game = Game()
+   game.print_result()
+```
+
+### Asking the user to play game again
+
+Suppose we want to ask the user if they want to play the game again after a game is completed. Here's how we can do it.
+
+```python
+# putting object creation inside the loop
+while True:
+   game = Game()
+   game.print_result()
+
+   play_again = input('Do you want to play again? (y/n): ')
+
+   # if user enter any other character other than y, the game ends
+   if play_again != 'y':
+      break
+```
+
+Now, each time a game is completed, the user is asked whether they want to play the game again or not. If the user enters any other input other than `y`, the game is run again because of the infinite loop.
+
+Suppose we want to run our game again and again until the user decides to quit it. In such scenarios, we can add code to accomplish those functionalities outside of the class. It's because our `Game` class should contain code only related to the game.
+
+\
+**Exception Handling**
+
+If our code may raise an exception, we should put that code inside the `try...catch` statement.
+
+Since our code won't raise any exception, it doesn't matter what input the user enters, we decided not to use the `try...catch` statement in this project.
+
+
+
+## Tic-tac-toe Project
+
+
+
+**How is tic-tac-toe played?**
+
+* The game is played between two players on a grid that's 3 squares by 3 squares.
+* If a player decides to select **X**, the other player will take **O**. Players take turns putting their marks in empty squares.
+* The first player to get 3 of their marks in a straight row wins.
+* If all the 9 squares are full but none of the players can get 3 of their marks in a row, it's a draw.
+
+
+
+## Project Design
+
+There are mainly three aspects to this game:
+
+* The tic-tac-toe Board
+* Two Players
+* Win and Draw Logic
+
+**The tic-tac-toe Board**
+
+Since a tic-tac-toe board contains 9 squares, we will use a list of 9 items to handle this task. And, we will use the position number to identify a grid. For example, **position 8** means bottom middle grid.
+
+<figure><img src="https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-6.2.2.png" alt="Working of Tic-tac-toe in Python"><figcaption></figcaption></figure>
+
+**Two Players**
+
+As we have said, this game is played between two players.
+
+In our game, the first player will always get the `X` symbol and the second player will always get the `O` symbol.
+
+**Win and Draw Logic**
+
+We will check the position of symbols in a list for win/draw logic. For example,
+
+* if position 4, 5 and 6 have the same **X** symbol, the first player won the game
+* if position 3, 5 and 7 have the same **O** symbol, the second player won the game
+* if position 2, 5 and 8 have the same **X** symbol, the first player won the game and so on.
+
+If all the positions are filled but none of the players gets 3 of their symbols in a row, it's a draw.
+
+## Working with Multiple Classes
+
+As we know, we can create an object inside the class itself. For example,
+
+
+
+
+
+## QR Code Project
+
+我們透過 Python 程式產生  **QR** code，過程中我們會安裝並使用 `pyqrcode` module。
+
+為了製作 QR code 產生器，先用 pip 安裝 `pyqrcode` module，請在終端機跑以下指令：
+
+```
+pip install pyqrcode
+```
+
