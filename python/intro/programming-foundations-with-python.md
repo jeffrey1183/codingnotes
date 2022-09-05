@@ -406,7 +406,7 @@ class Student:
     pass
 ```
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (4).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -635,7 +635,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (4) (2).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -1140,7 +1140,7 @@ with open('python.txt', 'w') as f:
 
 在進行完上面的程式碼後，就會產生下面的 python.txt 檔案
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 要注意寫入模式會把舊內容覆蓋掉，在這個模式要很小心，像下面的程式就會把舊的內容覆蓋掉。
 
