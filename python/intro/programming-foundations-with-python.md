@@ -406,7 +406,7 @@ class Student:
     pass
 ```
 
-![](<../../.gitbook/assets/image (1) (4).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -485,6 +485,107 @@ print(student1.score)
 在這裡 `student1.name = 'Harry'` 是把 name attribute 加進 `student1` object。同樣 `student1.score` 把 `score` attribute 加進 object。
 
 但這不是最好的方法，下面會再介紹。
+
+
+
+### 座標相加的案例
+
+Coordinate 是座標
+
+```python
+# create the Coordinate class
+class Coordinate:
+
+    # initialize x and y attributes inside __init__()
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # define the add_coordinates() method
+    def add_coordinates(self, coordinate):
+        return Coordinate(self.x + coordinate.x, self.y+coordinate.y)
+
+#或是寫成
+#Coordinate.x = self.x + coordinate.x
+#Coordinate.y = self.y + coordinate.y
+#return Coordinate
+
+
+
+# create objects c1 and c2
+c1 = Coordinate(5,6)
+c2 = Coordinate(7,9)
+
+# call the add_coordinates() method
+c3 = c1.add_coordinates(c2)
+
+# print attributes of the c3 object
+print(c3.x)
+print(c3.y)
+```
+
+### 三角形周長相加的案例
+
+```python
+# create the Triangle class
+class Triangle:
+    # define the __init__() method
+    def __init__(self, x,y,z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    # define the get_perimeter() method
+    def get_perimeter(self):
+        return self.x + self.y + self.z
+        
+
+# take three integer inputs
+a = int(input())
+b = int(input())
+c = int(input())
+
+# create an object of the Triangle class
+tri = Triangle(a,b,c)
+
+# call the get_perimeter() method
+perimeter = tri.get_perimeter()
+
+# print the perimeter
+print(perimeter)
+```
+
+### 練習用物件導向的寫法，將 list 的單一項目加總
+
+下面是將學生考的分數加總
+
+```python
+
+# create the Student class
+class Student:
+
+    # use the __init__() method to initialize the scores attribute  
+    def __init__(self, scores):
+        self.scores = scores
+  
+    # create the get_scores_sum() method that returns the sum of scores items
+    def get_scores_sum(self):
+        return sum(self.scores)
+  
+# create the scores variable
+scores = [55, 75, 80, 62, 77]
+
+# create an object of Student by passing scores as an argument
+s1 = Student(scores)
+
+# call the get_scores_sum() method using the s1 object
+total = s1.get_scores_sum()
+
+# print total
+print(total)
+```
+
+
 
 ## Adding Methods
 
@@ -635,7 +736,41 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (4) (2).png>)
+
+應用題，交通工具的引擎
+
+```python
+# create the Engine class
+class Engine:
+    # use __init__() to initialize the power attribute 
+    def __init__(self,power):
+        self.power = power
+        
+
+# create the Vehicle class
+class Vehicle:
+    # use __init__() to initialize the wheels attribute
+ 
+    def __init__(self, wheels):
+        self.wheels = wheels
+        
+        # the engine attribute should be an object of the Engine class with the power attribute 400
+        self.engine = Engine.power = 400
+    
+    # create the get_power() method
+    def get_power(self):
+        # print the power attribute of the engine attribute (which is an object of Engine) 
+        print(self.engine)
+
+# create an object of Vehicle
+vehicle = Vehicle(4)
+
+# call the get_power() method using the object
+vehicle.get_power()
+
+
+```
 
 如果你解決的問題很簡單，不要用 object-oriented programming 因為你需要寫很多程式。如果是很複雜的問題參雜很多相關的變數和程式，你可以用物件導向解決，很合理。
 
@@ -732,6 +867,12 @@ class Animal:
 class Dog(Animal):
     def bark(self):
         print("I can bark")
+
+# create an object of Dog
+dog = Dog()
+
+# call the eat() method using the object
+dog.eat()
 ```
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
@@ -1140,7 +1281,7 @@ with open('python.txt', 'w') as f:
 
 在進行完上面的程式碼後，就會產生下面的 python.txt 檔案
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 要注意寫入模式會把舊內容覆蓋掉，在這個模式要很小心，像下面的程式就會把舊的內容覆蓋掉。
 
