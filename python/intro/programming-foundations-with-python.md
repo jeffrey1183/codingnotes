@@ -2124,52 +2124,83 @@ Since our code won't raise any exception, it doesn't matter what input the user 
 
 **圈圈叉叉怎麼玩？**
 
-**雖然大家應該都知道但還是說一下玩法。**
+雖然大家應該都知道但還是說一下玩法。
 
-* 遊戲會The game is played between two players on a grid that's 3 squares by 3 squares.
-* If a player decides to select **X**, the other player will take **O**. Players take turns putting their marks in empty squares.
-* The first player to get 3 of their marks in a straight row wins.
-* If all the 9 squares are full but none of the players can get 3 of their marks in a row, it's a draw.
+* 遊戲會有一個 3 x 3 的九宮格，兩個人玩。
+* 如果一個人選擇用 X，另一個人就是 O，兩個人輪流在空格劃圈圈叉叉。
+* 先將符號連成一條線的就是贏家。
+* 如果 9 格填完都沒有連成線就是平手。
+
+<figure><img src="https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-6.2.1.png" alt="Tic-tac-toe in Python"><figcaption></figcaption></figure>
 
 
 
-## Project Design
+### 專案設計
 
-There are mainly three aspects to this game:
+整個遊戲我們分成三個部分：整個
 
-* The tic-tac-toe Board
-* Two Players
-* Win and Draw Logic
+* 圈圈叉叉的板子
+* 二個玩家
+* 勝敗或平手的判斷
 
-**The tic-tac-toe Board**
+**圈圈叉叉的板子**
 
-Since a tic-tac-toe board contains 9 squares, we will use a list of 9 items to handle this task. And, we will use the position number to identify a grid. For example, **position 8** means bottom middle grid.
+由於圈圈叉叉有 9 個格子，我們把每個格子都紀錄一個編號，像下面這張圖， **8** 指的是中間下面的那格。
 
 <figure><img src="https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-6.2.2.png" alt="Working of Tic-tac-toe in Python"><figcaption></figcaption></figure>
 
-**Two Players**
+**兩名玩家**
 
-As we have said, this game is played between two players.
+如同上面我們提到的，是遊戲是二個人玩，第一人用叉叉，第二個人用圈圈。
 
-In our game, the first player will always get the `X` symbol and the second player will always get the `O` symbol.
+**輸贏和平手的判斷**
 
-**Win and Draw Logic**
+我們會透過確認每一個位置的符號判斷勝負或平手，舉例來說：
 
-We will check the position of symbols in a list for win/draw logic. For example,
+* 如果位置 4, 5, 6 都是叉叉，第一個人就贏了
+* 如果位置 3, 5, 7 都是圈圈，第二個人就贏了
+* 如果位置 2, 5, 8 都是叉叉，第一個人就贏了
+* 如果所有空格都填完，但都沒有連成線，就算平手
 
-* if position 4, 5 and 6 have the same **X** symbol, the first player won the game
-* if position 3, 5 and 7 have the same **O** symbol, the second player won the game
-* if position 2, 5 and 8 have the same **X** symbol, the first player won the game and so on.
+### 實際用 Python 寫
 
-If all the positions are filled but none of the players gets 3 of their symbols in a row, it's a draw.
+我們用物件導向來寫這個遊戲，遊戲中會包含這些 class：
 
-## Working with Multiple Classes
+* `Board` -處理圈圈叉叉的板子
+* `Player` - 處理玩家下哪
+* `Game` - 判斷輸贏或平手
 
-As we know, we can create an object inside the class itself. For example,
+在我們寫程式前，有一些事情我們要了解，像一個物件是可以塞進另一個物件裡：
 
+```python
+class Vehicle:
+    def __init__(self, wheels):
+        self.wheels = wheels
+        
+        # creating an object of the Engine class
+        self.engine = Engine(400)
+    
+    def run_method(self):
+        print(f'vehicle wheels: {self.wheels}')
+ 
+        # self.engine is an object of Engine
+        # self.engine.power is an attribute of Engine
+        print(f'vehicle power: {self.engine.power}')
+ 
+class Engine:
+    def __init__(self, power):
+        self.power = power
+        
+v1 = Vehicle(4)
+v1.run_method()
 
+```
 
+像上面的案例有`Vehicle` 和 `Engine`兩個 class，在 Vehicle class 的 init method，我們建立了一個 Engine 物件並且 assign 給 Vehicle 的 engine attribute。&#x20;
 
+所以當上面的 `v1` object 建立的時候，會有`wheels` (值是 4)和 `engine` (和 `Engine`)一起建立。
+
+現在我們要從 v1 物件 access engine 物件的 `power` attribute 要用`n`e, we have to further use `v1.engine.power`.v1.engine.power
 
 ## QR Code 專案
 
