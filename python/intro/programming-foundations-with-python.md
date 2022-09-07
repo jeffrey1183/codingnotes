@@ -881,7 +881,30 @@ dog.eat()
 
 如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
 
-繼承方便我們重複使用一樣的程式，可以節省時間和減少 bug。我們應該要盡量減少重複的 code，因為如果要修改就會改很多地方，容易出錯。
+繼承方便我們重複使用一樣的程式，可以節省時間和減少 bug。我們應該要盡量減少重複的 code，因為如果要修改就會改很多地方，容易出錯。下面是一個 super() 的案例：
+
+```python
+# create the Animal class
+class Animal():
+    def eat(self):
+        print('I can eat food')
+
+# create the Dog class
+class Dog(Animal):
+    def bark(self):
+        print('I can bark')
+    def eat(self):
+        super().eat()
+
+# create an object of the Dog class
+dog = Dog()
+
+# call the eat() method using the object
+dog.eat()
+
+#Output
+#I can eat food
+```
 
 
 
@@ -1752,9 +1775,7 @@ pip install pandas
 
 ## 剪刀、石頭、布小遊戲
 
-以物件導向為基礎，讓玩家和電腦猜拳拼輸贏。
-
-
+這裡我們用物件導向的概念，寫一個程式讓玩家和電腦猜拳拼輸贏。
 
 ### Step 1: Creating a Class
 
@@ -2099,13 +2120,13 @@ Since our code won't raise any exception, it doesn't matter what input the user 
 
 
 
-## Tic-tac-toe Project
+## 圈圈叉叉遊戲
 
+**圈圈叉叉怎麼玩？**
 
+**雖然大家應該都知道但還是說一下玩法。**
 
-**How is tic-tac-toe played?**
-
-* The game is played between two players on a grid that's 3 squares by 3 squares.
+* 遊戲會The game is played between two players on a grid that's 3 squares by 3 squares.
 * If a player decides to select **X**, the other player will take **O**. Players take turns putting their marks in empty squares.
 * The first player to get 3 of their marks in a straight row wins.
 * If all the 9 squares are full but none of the players can get 3 of their marks in a row, it's a draw.
@@ -2150,13 +2171,41 @@ As we know, we can create an object inside the class itself. For example,
 
 
 
-## QR Code Project
+## QR Code 專案
 
-我們透過 Python 程式產生  **QR** code，過程中我們會安裝並使用 `pyqrcode` module。
-
-為了製作 QR code 產生器，先用 pip 安裝 `pyqrcode` module，請在終端機跑以下指令：
+我們透過 Python 程式產生  QR code，過程中我們會安裝並使用 `pyqrcode` module。為了製作 QR code 產生器，先用 pip 安裝 `pyqrcode` module，請在終端機跑以下指令：
 
 ```
 pip install pyqrcode
 ```
+
+在 Mac 我是先到我建立的 python 虛擬環境安裝 pyqrcode module。
+
+```
+pip3 install pyqrcode
+```
+
+安裝完成後，我輸入 python3 到 python 的環境，輸入下面的程式，最後在我們虛擬環境資料夾裡會看到 qr\_code.svg 的檔案，用相機掃描 QR Code 會有我輸入的文字。
+
+```python
+# import the pyqrcode  module after you install it
+import pyqrcode
+
+# take user input
+# this is the text for which we want to generate a QR code
+text = input("Enter the text to generate QR code: ")
+
+# create a pyqrcode object by calling the create() method
+# we will use our text as an argument
+qr_code = pyqrcode.create(text)
+
+# calling the svg() method of the qr_code object 
+# creates the file named qr_code.svg in svg format
+# the scale argument sets how large to draw a single image
+qr_code.svg('qr_code.svg', scale = 8)
+```
+
+## Takeaway
+
+Python 受歡迎的原因就是有很多好用的 package 和 module，透過 Google 找到文件並閱讀他們，這是這堂課的重點。當你了解 Python 程式編譯的核心概念後，你應該可以看別人的程式碼並應用到你自己的程式裡。
 
