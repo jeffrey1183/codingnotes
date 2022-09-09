@@ -4,6 +4,7 @@ Python 基礎
 
 * [ccClub](https://medium.com/ccclub/tagged/python-%E5%85%A5%E9%96%80)
 * Programiz
+* [Django girls](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/)
 
 
 
