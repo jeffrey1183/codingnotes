@@ -69,7 +69,7 @@ print(square_numbers)
 
 ```
 
-![](<../../.gitbook/assets/image (2) (1).png>)
+![](<../../../.gitbook/assets/image (2) (1).png>)
 
 還可以加上 condition
 
@@ -125,7 +125,7 @@ print(double(10))
 
 我們用 `lambda` 當作關鍵字去定義 lambda function，在 `:` 之前是我們接收的argument ，在冒號 `:` 之後是回傳值。
 
-![](<../../.gitbook/assets/image (1) (2).png>)
+![](<../../../.gitbook/assets/image (1) (2).png>)
 
 以程式來看，我們把 lambda function  assigned 到 `double` 這個變數裡，我們 call 這個lambda function透過 `double(value)`的寫法。
 
@@ -186,7 +186,7 @@ display_info(age = '22', name = 'Amanda')
 
 ```
 
-![](<../../.gitbook/assets/image (3) (2).png>)
+![](<../../../.gitbook/assets/image (3) (2).png>)
 
 ## Default Arguments
 
@@ -364,14 +364,14 @@ print_variable()
 
 運作的概念上，在
 
-![](<../../.gitbook/assets/image (1) (3).png>)
+![](<../../../.gitbook/assets/image (1) (3).png>)
 
 我們在  `print_variable()` function 內呼叫 `print_variable()` function 他自己，因此會不斷循環，這是一個無限 recursion 的案例，有幾件事情我們需要知道。
 
 1. 雖然我們一直在 call `print_variable()` function，但這些 functions 其實不同。
 2. 因為在 function 內的 variable 是 local variable， `text` variable 在每個 `print_variable()` function 內都是 local 的。
 
-![](<../../.gitbook/assets/image (4) (1).png>)
+![](<../../../.gitbook/assets/image (4) (1).png>)
 
 ## Object-oriented Programming (OOP)
 
@@ -379,11 +379,11 @@ Object-oriented programming (OOP) 藉由建立物件解決程式問題，是很�
 
 我們透過下面的案例來了解，假設我們要儲存大學生的名字和分數資料，基於考試的分數來判斷有沒有通過考試，程式的架構如下：
 
-![](<../../.gitbook/assets/image (1) (1).png>)
+![](<../../../.gitbook/assets/image (1) (1).png>)
 
 想像我們要儲存的學生和分數不只一位而是很多位，這樣要一位一位儲存，會讓程式很雜亂。
 
-![](<../../.gitbook/assets/image (5) (1).png>)
+![](<../../../.gitbook/assets/image (5) (1).png>)
 
 由於這些資料和 function 有關聯性，最好是把他們當成 single entity，我們可以透過物件導向來解決這個問題。接下來我們用物件來解決這個這個問題：
 
@@ -406,7 +406,7 @@ class Student:
     pass
 ```
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../../.gitbook/assets/image (1).png>)
 
 This **Student** class has two variables `name` and `score`, and a function `check_pass_fail()`.
 
@@ -424,7 +424,7 @@ Once we define a class, we can create as many objects as we want from the class.
 
 
 
-![](<../../.gitbook/assets/image (3) (3).png>)
+![](<../../../.gitbook/assets/image (3) (3).png>)
 
 ```python
 # create a class
@@ -627,7 +627,7 @@ When we define methods, we must use `self` as the first argument. It's because w
 
 因為 `self` 在 `check_pass_fail()` method 裡代表 `student1` object 這個值， `self.score` 等於  `student1.score` 在這個案例是 85，這就是為何程式可以運作而沒有 error。從下面的說明來看比較清楚：
 
-![](<../../.gitbook/assets/image (6).png>)
+![](<../../../.gitbook/assets/image (6).png>)
 
 ### Adding Attributes in a Proper Way
 
@@ -692,7 +692,7 @@ print(f'Did {student1.name} pass?', did_pass)
 \
 
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../../.gitbook/assets/image (7).png>)
 
 假如你要新增 attributes 到物件裡，記得用 `__init__()` method，在 init method 內assign 數值到`self.name`
 
@@ -736,7 +736,7 @@ person1.print_person_attributes(person2)
 
 `圖解是這樣：`
 
-![](<../../.gitbook/assets/image (4) (2).png>)
+![](<../../../.gitbook/assets/image (4) (2).png>)
 
 應用題，交通工具的引擎
 
@@ -794,13 +794,13 @@ Here, `number` is more like a name tag and it can refer to any object. Currently
 
 
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../../.gitbook/assets/image (5).png>)
 
 Now, if we create another variable `number1` and assign `number` to it, both `number` and `number1` will refer to the same object.
 
 
 
-![](../../.gitbook/assets/image.png)
+![](../../../.gitbook/assets/image.png)
 
 ## How Do Variables Actually Work?
 
@@ -852,7 +852,7 @@ Inheritance 是物件導向蠻重要的概念，假設我們有一個競賽是�
 
 
 
-![](<../../.gitbook/assets/image (8).png>)
+![](<../../../.gitbook/assets/image (8).png>)
 
 這是繼承的基本概念，繼承讓 class 有母子的概念，這個案例中 `Vehicle` 是 **parent 或稱作 base class** ， `Car` 和 `Motorcycle` 都是 **child 或稱作 derived classes。**
 
@@ -877,7 +877,7 @@ dog.eat()
 
 &#x20;`Dog` class 會繼承所有 attributes 和 methods 從 `Animal` class，`Dog` class 不只可以 access Dog 物件的 methods 和 attributes 也可以 Animal class 的methods 和 attributes 。
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../../.gitbook/assets/image (3).png>)
 
 如果母子物件有一樣的 method，子物件會蓋掉母物件，這叫做 method overriding。如果要呼叫母物件的 method 可以在 call function 的時候使用 super()，如果母物件有 init method 子物件沒有，就會執行母物件的 init method。
 
@@ -1304,7 +1304,7 @@ with open('python.txt', 'w') as f:
 
 在進行完上面的程式碼後，就會產生下面的 python.txt 檔案
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../../.gitbook/assets/image (2).png>)
 
 要注意寫入模式會把舊內容覆蓋掉，在這個模式要很小心，像下面的程式就會把舊的內容覆蓋掉。
 
@@ -1733,8 +1733,6 @@ We can import the `boss` module in a similar way.
 
 
 
-
-
 ## Use of \_\_init\_\_.py file
 
 之前在 game 資料夾新增的 **\_\_init\_\_.py** 檔案是一個特別的檔案，會自動在 import package 的時候執行，我們在裡面新增一行 print statement。
@@ -2120,87 +2118,7 @@ Since our code won't raise any exception, it doesn't matter what input the user 
 
 
 
-## 圈圈叉叉遊戲
-
-**圈圈叉叉怎麼玩？**
-
-雖然大家應該都知道但還是說一下玩法。
-
-* 遊戲會有一個 3 x 3 的九宮格，兩個人玩。
-* 如果一個人選擇用 X，另一個人就是 O，兩個人輪流在空格劃圈圈叉叉。
-* 先將符號連成一條線的就是贏家。
-* 如果 9 格填完都沒有連成線就是平手。
-
-<figure><img src="https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-6.2.1.png" alt="Tic-tac-toe in Python"><figcaption></figcaption></figure>
-
-
-
-### 專案設計
-
-整個遊戲我們分成三個部分：整個
-
-* 圈圈叉叉的板子
-* 二個玩家
-* 勝敗或平手的判斷
-
-**圈圈叉叉的板子**
-
-由於圈圈叉叉有 9 個格子，我們把每個格子都紀錄一個編號，像下面這張圖， **8** 指的是中間下面的那格。
-
-<figure><img src="https://programiz-pro-spaces.sfo3.digitaloceanspaces.com/course-images/python-beyond-basics/python2-6.2.2.png" alt="Working of Tic-tac-toe in Python"><figcaption></figcaption></figure>
-
-**兩名玩家**
-
-如同上面我們提到的，是遊戲是二個人玩，第一人用叉叉，第二個人用圈圈。
-
-**輸贏和平手的判斷**
-
-我們會透過確認每一個位置的符號判斷勝負或平手，舉例來說：
-
-* 如果位置 4, 5, 6 都是叉叉，第一個人就贏了
-* 如果位置 3, 5, 7 都是圈圈，第二個人就贏了
-* 如果位置 2, 5, 8 都是叉叉，第一個人就贏了
-* 如果所有空格都填完，但都沒有連成線，就算平手
-
-### 實際用 Python 寫
-
-我們用物件導向來寫這個遊戲，遊戲中會包含這些 class：
-
-* `Board` -處理圈圈叉叉的板子
-* `Player` - 處理玩家下哪
-* `Game` - 判斷輸贏或平手
-
-在我們寫程式前，有一些事情我們要了解，像一個物件是可以塞進另一個物件裡：
-
-```python
-class Vehicle:
-    def __init__(self, wheels):
-        self.wheels = wheels
-        
-        # creating an object of the Engine class
-        self.engine = Engine(400)
-    
-    def run_method(self):
-        print(f'vehicle wheels: {self.wheels}')
- 
-        # self.engine is an object of Engine
-        # self.engine.power is an attribute of Engine
-        print(f'vehicle power: {self.engine.power}')
- 
-class Engine:
-    def __init__(self, power):
-        self.power = power
-        
-v1 = Vehicle(4)
-v1.run_method()
-
-```
-
-像上面的案例有`Vehicle` 和 `Engine`兩個 class，在 Vehicle class 的 init method，我們建立了一個 Engine 物件並且 assign 給 Vehicle 的 engine attribute。&#x20;
-
-所以當上面的 `v1` object 建立的時候，會有`wheels` (值是 4)和 `engine` (和 `Engine`)一起建立。
-
-現在我們要從 v1 物件 access engine 物件的 `power` attribute 要用`n`e, we have to further use `v1.engine.power`.v1.engine.power
+****
 
 ## QR Code 專案
 
