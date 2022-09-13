@@ -15,7 +15,7 @@
 * [Project](python/project/README.md)
   * [Take a Break](python/project/take-a-break.md)
 * [Django](guides/advanced-permissions.md)
-  * [重要觀念](python/advanced-permissions/zhong-yao-guan-nian.md)
+  * [文件精華](python/advanced-permissions/wen-jian-jing-hua.md)
 
 ## 🍎 iOS
 

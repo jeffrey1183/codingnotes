@@ -1,12 +1,12 @@
 ---
-description: 重要觀念
+description: 文件精華
 ---
 
-# 重要觀念
+# 文件精華
 
 
 
-[各種 field types](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-types)
+[Model Field Reference](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-types)
 
 * Charfield
   * max\_length
