@@ -165,7 +165,7 @@ INSTALLED\_APPS 裡的 App 可以用在不同專案，預設有 admin 網站、a
 
 定義 model，事實上就是 database layout 和 metadata。
 
-一個 model 是獨立的資料，包含你想儲存的的欄位和執行的行為。Django 跟隨 [DRY Principle](https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#dry)，只要在一個地方定義 data model，會自動撈取資料，包含 migration。 class 都繼承 `django.db.models.Model`，所以類別名稱後方的() 填寫 models.Model
+一個 model 是獨立的資料，包含你想儲存的的欄位和執行的行為。Django 跟隨 [DRY Principle](https://docs.djangoproject.com/en/4.0/misc/design-philosophies/#dry)，只要在一個地方定義 data model，會自動撈取資料，包含 migration。 這裡定義的 class 我們直接繼承  models module 的 Model class，所以在 class Question 和 Choice 的括號內寫上 models.Model。
 
 
 
@@ -181,8 +181,9 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
-
 ```
+
+上面程式裡的 Foreignkey 裡的 on\_delete 的 attribute 有不同的值，當設成 CASCADE 是當關聯的物件被刪除，會一起被刪除，其他還有像 PROTECT，可以參考 [Stackoverflow 上的說明](https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models)。&#x20;
 
 定義完成後要啟動 models，要在 settings.py 的 [installed app 加入  polls.apps.PollsConfig](https://docs.djangoproject.com/en/4.0/intro/tutorial02/#activating-models) 再去下 migration 的指令，models 有更動就要做 migration。
 
