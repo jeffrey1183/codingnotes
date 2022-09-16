@@ -1,10 +1,49 @@
 # Intro
 
-Python 基礎
+Python 基礎知識
 
-* [ccClub](https://medium.com/ccclub/tagged/python-%E5%85%A5%E9%96%80)
+* [Python 入門](https://medium.com/ccclub/tagged/python-%E5%85%A5%E9%96%80) by [ccClub](https://www.ccclub.io/?fbclid=IwAR3oMQqJL159OCLdriqsNtSlw4EPB4RUtP5\_A44xR8osQAdd84HimfM2ysk)
 * Programiz
 * [Django girls](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/)
+
+
+
+enumerate function
+
+我們可以使用 Python 中的一個函數來同時取得一個元素在一個 list 中的 index 與他的值。使用的方法如下 ：
+
+```python
+for index, item in enumerate(list_name):
+    print(index, item)
+```
+
+以 `dangerous` 為例：
+
+```python
+dangerous = ['Jam', 'In the Closet', 'Remember the Time',"Heal the World","Black or White","Who Is It","Give In to Me", "Dangerous"]
+for index, song in enumerate(dangerous):
+    print(index, song)
+```
+
+參考資料：[Hubspot 介紹 Enumerate function](https://blog.hubspot.com/website/python-enumerate)
+
+
+
+
+
+把 list 轉成字串
+
+* 透過 join method
+
+把字串轉成 list
+
+* 透過 split method
+
+
+
+參考資料：[ccClub](https://medium.com/ccclub/ccclub-python-for-beginners-tutorial-f1b4e7d2e5ac)
+
+
 
 
 
