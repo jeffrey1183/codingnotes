@@ -10,8 +10,12 @@
 
 [第五章 模型設計](https://foofish.net/django-tutorial-05.html)
 
-* `auto_add_new`[會在 model 物件第一次被創建時，將字段的值設成創建的時間，之後修改物件，字段的值不會再更新](https://agvszwk.github.io/2019/05/11/django%E7%9A%84model-auto-now-add%E5%92%8Cauto-now/)。
-* `ForeignKey` 是用在一對多的模型關係，其他關係像多對多，一對一請[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#foreignkey)參數 relate\_name 的細節可[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related\_name)。&#x20;
+* `auto_add_new`[會在 model 物件第一次被創建時，將字段的值設成創建的時間，之後修改物件，字段的值不會再更新](https://agvszwk.github.io/2019/05/11/django%E7%9A%84model-auto-now-add%E5%92%8Cauto-now/)。設定 [DateTimeField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datetimefield) 的時候會用到。
+* `ForeignKey` 是用在一對多的模型關係，其他關係像多對多，一對一請[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#foreignkey)參數 relate\_name 的細節可[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related\_name)
+* 在定義 Django model 的欄位的時候，**blank 決定是否此欄位在表格中是否必填，** `False` 是指必填，不填會產生 error， `True` 是指可以允許留空。**null 決定在資料庫中此欄位能否設成** `NULL` 或 `NOT NULL` ，跟表格驗證無關。可參考 [stackoverflow 的討論](https://stackoverflow.com/questions/8159310/why-are-blank-and-null-distinct-options-for-a-django-model)。在課程中的 Post class 的 updated\_at argument，null=True 代表不一定會更新這個 post，在資料庫裡可以是 NULL。
+
+\
+
 
 
 
