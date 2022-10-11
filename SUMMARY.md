@@ -16,7 +16,7 @@
   * [Take a Break](python/project/take-a-break.md)
 * [Django](guides/advanced-permissions.md)
   * [Django 推薦課程](python/advanced-permissions/django-tui-jian-ke-cheng.md)
-  * [文件精華](python/advanced-permissions/wen-jian-jing-hua.md)
+  * [其他知識](python/advanced-permissions/qi-ta-zhi-shi.md)
   * [軟體設計及架構](python/advanced-permissions/ruan-ti-she-ji-ji-jia-gou.md)
 
 ## 🍎 iOS
