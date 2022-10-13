@@ -156,4 +156,11 @@ def board_topics(request, pk):
 
 在為 `HomeTests` class 寫測試的練習中，我們有運用到 Django 裡 creating object 的概念，[create()](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#django.db.models.query.QuerySet.create) method 比 save() method 方便，同時建立和儲存物件。
 
-另外在 Django 測試的概念裡會用 Response object ，不是 Django views 裡的 HttpResponse object。Response object 的 attribute `client` 和 method `get()` ，可以參考文件。
+另外在 Django 測試的概念裡會用 Response object ，不是 Django views 裡的 HttpResponse object。Response object 的 attribute `client` 和 method `get()` ，可以參考[文件](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#testing-responses)。
+
+`test_home_view_contains_link_to_topics_page` 使用 [assertContains() method](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#django.test.SimpleTestCase.assertContains)
+
+
+
+
+
