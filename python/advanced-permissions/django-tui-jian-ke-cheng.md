@@ -158,7 +158,9 @@ def board_topics(request, pk):
 
 另外在 Django 測試的概念裡會用 Response object ，不是 Django views 裡的 HttpResponse object。Response object 的 attribute `client` 和 method `get()` ，可以參考[文件](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#testing-responses)。
 
-`test_home_view_contains_link_to_topics_page` 使用 [assertContains() method](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#django.test.SimpleTestCase.assertContains)
+`test_home_view_contains_link_to_topics_page` 使用 [assertContains() method](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#django.test.SimpleTestCase.assertContains) 驗證 response 主體的文本是否包含給定的文本。我們在測試中使用的文本是 a tag 的 href 部分，所以我們在測試 response 主體是否包含 href="/boards/1"，裡面使用到 [Python string format() method](https://www.w3schools.com/python/ref\_string\_format.asp)format() method 會格式化括號內的值，插入用 {} 定義的 placeholder 內，接著回傳格式化的字串。{} 內可以留空、命名或是放入數字，像課程裡的是用 {0} 作為 placeholder，可參考 [format 的文件](https://www.w3schools.com/python/ref\_string\_format.asp)了解細節。
+
+
 
 
 
