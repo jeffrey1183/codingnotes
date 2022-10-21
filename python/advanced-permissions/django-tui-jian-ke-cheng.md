@@ -95,6 +95,10 @@ assertEquals function 是用來確認兩個 variables 是不是一樣，目的�
 
 [第十一章 URL 分發](https://foofish.net/django-tutorial-11.html)
 
+Django 2.0 後已經將 url 函數換成 path 函數，Django 怎麼處理 request 找到對應的 URL 並啟動 view 請[閱讀官方文件](https://docs.djangoproject.com/en/4.1/topics/http/urls/#how-django-processes-a-request)，寫的非常好。在 Path Converter 那一段有介紹 slug 這種 url 轉換的方式，[stackoverflow 有詳細說明](https://stackoverflow.com/questions/427102/what-is-a-slug-in-django)。
+
+
+
 高級 URLs 路由那一段，寫法可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/urls/)
 
 ```python
@@ -160,7 +164,7 @@ def board_topics(request, pk):
 
 `test_home_view_contains_link_to_topics_page` 使用 [assertContains() method](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#django.test.SimpleTestCase.assertContains) 驗證 response 主體的文本是否包含給定的文本。我們在測試中使用的文本是 a tag 的 href 部分，所以我們在測試 response 主體是否包含 href="/boards/1"，裡面使用到 [Python string format() method](https://www.w3schools.com/python/ref\_string\_format.asp)format() method 會格式化括號內的值，插入用 {} 定義的 placeholder 內，接著回傳格式化的字串。{} 內可以留空、命名或是放入數字，像課程裡的是用 {0} 作為 placeholder，可參考 [format 的文件](https://www.w3schools.com/python/ref\_string\_format.asp)了解細節。
 
-
+在設定 board 的連結，運用到 [url template tag](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#url) 的寫法，第一個 argument 是寫 URL pattern name，使用在 url.py 定義的名稱，其他 argument 按照順序用空格分開。
 
 
 

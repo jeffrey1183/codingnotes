@@ -12,6 +12,8 @@ UML (Unified Modeling Language)，中文名稱為「統一塑模語言
 
 
 
+[DRY 原則](https://shawnlin0201.github.io/Methodology/Methodology-001-DRY-principle/)
+
 
 
 
