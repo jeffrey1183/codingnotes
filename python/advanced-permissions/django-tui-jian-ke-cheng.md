@@ -117,7 +117,7 @@ urlpatterns = [
 
 在編寫測試 test.py，有運用到以下觀念
 
-* reverse function 像是把 url 標記進程式裡，第一個 viewname argument 是放 url 的名稱或是呼叫 view object，更多細節可以參考 [reverse 文件](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/) resolve 的概念可以參考[這一篇](https://www.cnblogs.com/JcHome/p/16097114.html)resolve 的第一個 [argument 是放路徑](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#django.urls.resolve)。
+* reverse function 像是把 url 標記進程式裡，第一個 viewname argument 是放 url 的名稱或是呼叫 view object，更多細節可以參考 [reverse 文件](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/) ，resolve 可以找出路徑對應的 view function，第一個 argument 是放路徑，可以參考 [resolve 的官方說明](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#resolve)。
 * `self.client` 是 [Django test client 不是真的瀏覽器](https://stackoverflow.com/questions/57425954/usage-of-self-client-get-vs-self-browser-get)，甚至不會發出真的 request
 * [\*args 和 \*\*kwargs 的說明](https://skylinelimit.blogspot.com/2018/04/python-args-kwargs.html)
 
@@ -141,7 +141,7 @@ def board_topics(request, pk):
     return render(request, 'topics.html', {'board': board})
 ```
 
-另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](django-tui-jian-ke-cheng.md#django-ru-men-yu-shi-jian)
+另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)
 
 ```python
 import imp
