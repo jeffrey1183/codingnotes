@@ -1,6 +1,6 @@
 # Intro
 
-## Python 基礎知識
+Python 基礎知識
 
 * [Python 入門](https://medium.com/ccclub/tagged/python-%E5%85%A5%E9%96%80) by [ccClub](https://www.ccclub.io/?fbclid=IwAR3oMQqJL159OCLdriqsNtSlw4EPB4RUtP5\_A44xR8osQAdd84HimfM2ysk)
 * Programiz
@@ -8,7 +8,7 @@
 
 
 
-### enumerate function <a href="#f2e0" id="f2e0"></a>
+enumerate function
 
 我們可以使用 Python 中的一個函數來同時取得一個元素在一個 list 中的 index 與他的值。使用的方法如下 ：
 
@@ -28,20 +28,6 @@ for index, song in enumerate(dangerous):
 參考資料：[Hubspot 介紹 Enumerate function](https://blog.hubspot.com/website/python-enumerate)
 
 
-
-
-
-#### Python math.pow() Method
-
-計算一個數字的平方、三次方到 n 次方，可參考[文件](https://www.w3schools.com/python/ref\_math\_pow.asp)。
-
-
-
-
-
-## Dry 原則
-
-* [參考文章](https://shawnlin0201.github.io/Methodology/Methodology-001-DRY-principle/)
 
 
 

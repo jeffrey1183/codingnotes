@@ -24,14 +24,14 @@ urlpatterns = [
 
 ### [第五章 模型設計](https://foofish.net/django-tutorial-05.html)
 
-* 每個 Django model 都帶有一個特殊的 property，我們稱之為模型管理器(Model Manager)可以通過屬性 **objects** 來訪問這個管理器，主要用於數據庫操作。透過每個 model 的模型管理器(Model Manager) 我們可以得到一組 QuerySet，QuerySet 是物件的集合，源自我們的資料庫。因此我們會在 views.py 看到這樣的寫法：
+* 每個 Django model 都帶有一個特殊的 property，我們稱之為模型管理器(Model Manager)可以通過[屬性 **objects**](https://docs.djangoproject.com/en/4.1/ref/models/class/#objects) 來訪問這個管理器，主要用於數據庫操作。透過每個 model 的模型管理器(Model Manager) 我們可以得到一組 QuerySet，QuerySet 是物件的集合，源自我們的資料庫。因此我們會在 views.py 看到這樣的寫法：
 
 ```python
 def home(request):
     boards = Board.objects.all()
 ```
 
-
+官方文件請參考[這一段](https://docs.djangoproject.com/en/4.1/topics/db/queries/#retrieving-objects)，Queryset 的 method 相當多，請參考[此文件](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#django.db.models.query.QuerySet)。
 
 * `auto_add_new`[會在 model 物件第一次被創建時，將字段的值設成創建的時間，之後修改物件，字段的值不會再更新](https://agvszwk.github.io/2019/05/11/django%E7%9A%84model-auto-now-add%E5%92%8Cauto-now/)。設定 [DateTimeField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datetimefield) 的時候會用到。
 * `ForeignKey` 是用在一對多的模型關係，其他關係像多對多，一對一請[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#foreignkey)，參數 relate\_name 的細節可先看第五章的說明，他是一個 opotional 的項目，如果不設定會自動生成 class name set 的屬性，有需要了解其他參數再看[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related\_name)
@@ -240,6 +240,18 @@ CSS 檔案
 * fieldset 的基本寫法和屬性，請參考[此文件](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/fieldset)，legend 是 fieldset 裡的標題。[在 Boostrap 裡](https://getbootstrap.com/docs/4.0/components/forms/#horizontal-form)，也是包在 form tag 裡，class 用 form-group。
 
 
+
+QueryDict Objects
+
+* 對於 `HttpRequest` object 來說，他的 `GET` and `POST` attributes 都是 `django.http.QueryDict 的 instance，是一個`dictionary-like 的 class，常運用在 HTML 表格，對於一個 key 傳遞多個 value，例如一個留言的功能，用戶可以上傳不同內容。
+* 在這一章裡我們將新增的標題和內文 assign 到 subject 和 message 的變數內，[request.POST 從官方文件的說明得知是一個 dictionary](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpRequest.POST)，所以我們下面用 [assign dictionary value 寫法](https://www.tutorialspoint.com/How-do-I-assign-a-dictionary-value-to-a-variable-in-Python)。文件也提到 POST 的表格可能是空的，因此要用 if request.method == “POST” 去做檢查，不能直接 request.POST 資料。
+
+```
+subject = request.POST['subject']
+message = request.POST['message']
+```
+
+* QuerySet 的 [first method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#first) 可以回傳 set 裡的第一個物件，如果沒有要求順序，會根據 primary key 的順序。
 
 ## Pluralsight 線上課程
 
