@@ -139,7 +139,7 @@ def board_topics(request, pk):
     return render(request, 'topics.html', {'board': board})
 ```
 
-另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)
+另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)不過為什麼我們可以直接使用 pk？我們的 model 裡沒有這個值吧？其實 pk 是 Django model 的特殊性質，永遠指向該 model 的 primary key（當然）。前面提過，Django model 一定要有 primary key，而且如果你沒有特別設定，預設會在每一個 model 加上一個 id 欄位來當作 primary key。所以在這個例子中使用 pk 就等同於 id，但是用 pk 在大多時候比較有彈性，因為事實上 primary key 可以隨意設定，不見得要是 id。
 
 ```python
 import imp
@@ -238,6 +238,9 @@ CSS 檔案
 * Bootstrap 裡的 [form group](https://getbootstrap.com/docs/4.0/components/forms/#form-groups) class 是最簡單建立表格的寫法，搭配一行 label，一行 input 的寫法。而這些 label 和 input 是 form control，[form control](https://getbootstrap.com/docs/4.0/components/forms/#form-controls) 是指 \<form> 表單內的那些使用者介面元素，像是文字輸入欄位，密碼輸入欄位，日期輸入欄位，下拉選單，複選框，提交按鈕等。這個範例是用 textarea 可以設定要有幾列。
 * [Button](https://getbootstrap.com/docs/4.0/components/buttons/) 的寫法可以參考 Bootstrap 官方文件。
 * fieldset 的基本寫法和屬性，請參考[此文件](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/fieldset)，legend 是 fieldset 裡的標題。[在 Boostrap 裡](https://getbootstrap.com/docs/4.0/components/forms/#horizontal-form)，也是包在 form tag 裡，class 用 form-group。
+* \<th> tag 是 [table head](https://www.computerhope.com/jargon/h/html-th-tag.htm) 的意思。
+* 在 Bootstrap 裡有不同的 [table class](https://getbootstrap.com/docs/4.0/content/tables/) 可以設定樣式。
+* 在寫 topics.html 的時候，用戶輸入的標題、用戶名稱和更新時間會顯示在 topics.html 上，我們運用在 views.py 建立的 topic 物件和 models.py 的 Topic 物件欄位，我們可以撈出資料庫裡的數據。比較特別的是 topic.starter 會 access user model，我們用 [user model](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model) 的 username 欄位撈出資料。
 
 
 
@@ -252,6 +255,7 @@ message = request.POST['message']
 ```
 
 * QuerySet 的 [first method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#first) 可以回傳 set 裡的第一個物件，如果沒有要求順序，會根據 primary key 的順序。
+* POST 的時候，會建立 topic 和 post 兩個 object，透過 QuerySet 的 [create method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#create)。
 
 ## Pluralsight 線上課程
 

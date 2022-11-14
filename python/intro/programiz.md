@@ -80,19 +80,7 @@ dict4 = {[1, 2]: 'Hey'}
 dict5 = {1: 'One', 1: 'Two'} 
 ```
 
-Dictionary 可以[新增](https://www.w3schools.com/python/python\_dictionaries\_add.asp)、更改和刪除裡面的項目。新增的寫法如下：
-
-```python
-thisdict = {
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-thisdict["color"] = "red"
-print(thisdict)
-```
-
-
+Dictionary 可以新增、更改和刪除裡面的項目。
 
 
 
