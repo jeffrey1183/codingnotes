@@ -104,3 +104,15 @@ row 主要有兩件事情
 ### Container
 
 格線只是分割用途，格線總和是 12，如果總和小於 12 右邊就會多出一點點空間，如果大於 12 就會讓多出去的地方往下一行長，變成折行。
+
+
+
+### Forms
+
+* 在 [Bootstrap 有許多案例](https://getbootstrap.com/docs/4.3/components/forms/)可以練習，form-group class 是建構表單最簡單的方式，把 label、control、輔助的文字和表單驗證的訊息都包一起，form control 則是像  \<input> 和 \<textarea>  。
+* \<label> 的 for 屬性跟 \<input> 的 id 屬性綁在一起，如果不想把 \<label> 和 \<input> 分開寫，也可以把 \<input> 塞進 \<label> 裡，可參考 [MDN 的文件](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label)。
+* [input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button) 有各種類型，可以參考 MDN 的範例。
+* 為了讓網頁無障礙，一定要知道 aria 相關的 attribute，在 form 的範例裡就會看到。ARIA 是 Accessible Rich Internet Applications 的縮寫，一些常用的 aria attribute 可以看[這篇文章](https://noiseyou99.medium.com/%E4%BD%BF%E7%94%A8aria-%E6%A8%99%E7%B1%A4%E5%81%9Aaccessibility-1e306099ddc4)簡單了解。
+
+
+

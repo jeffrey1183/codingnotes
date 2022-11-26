@@ -139,7 +139,9 @@ def board_topics(request, pk):
     return render(request, 'topics.html', {'board': board})
 ```
 
-另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)不過為什麼我們可以直接使用 pk？我們的 model 裡沒有這個值吧？其實 pk 是 Django model 的特殊性質，永遠指向該 model 的 primary key（當然）。前面提過，Django model 一定要有 primary key，而且如果你沒有特別設定，預設會在每一個 model 加上一個 id 欄位來當作 primary key。所以在這個例子中使用 pk 就等同於 id，但是用 pk 在大多時候比較有彈性，因為事實上 primary key 可以隨意設定，不見得要是 id。
+另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)
+
+不過為什麼我們可以直接使用 pk？我們的 model 裡沒有這個值吧？其實 pk 是 Django model 的特殊性質，永遠指向該 model 的 primary key（當然）。前面提過，Django model 一定要有 primary key，而且如果你沒有特別設定，預設會在每一個 model 加上一個 id 欄位來當作 primary key。所以在這個例子中使用 pk 就等同於 id，但是用 pk 在大多時候比較有彈性，因為事實上 primary key 可以隨意設定，不見得要是 id。
 
 ```python
 import imp
@@ -241,6 +243,11 @@ CSS 檔案
 * \<th> tag 是 [table head](https://www.computerhope.com/jargon/h/html-th-tag.htm) 的意思。
 * 在 Bootstrap 裡有不同的 [table class](https://getbootstrap.com/docs/4.0/content/tables/) 可以設定樣式。
 * 在寫 topics.html 的時候，用戶輸入的標題、用戶名稱和更新時間會顯示在 topics.html 上，我們運用在 views.py 建立的 topic 物件和 models.py 的 Topic 物件欄位，我們可以撈出資料庫裡的數據。比較特別的是 topic.starter 會 access user model，我們用 [user model](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model) 的 username 欄位撈出資料。
+* [url template tag](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#url) 可以回傳特定路徑，路徑裡的 argument 要記得設定，這一章節就有用到 boark.pk。[pk 是 model 會自動產生的欄位](https://docs.djangoproject.com/en/4.1/topics/db/models/#automatic-primary-key-fields)。
+* 在 Python 代碼中，我們必須使用括號 `board.topics.all()` ，因為 all() 是一個 method。在使用 Django 模板語言寫程式的時候，在 HTML 模板文件裡我們不使用括號，就只是 `board.topics.all`。
+* `mb-4` 是 Bootstrap 裡設定間距的寫法，m 是 margin，b 是 bottom，可[參考官方文件](https://getbootstrap.com/docs/4.0/utilities/spacing/)。
+* 透過 User model 的 [create\_user method](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#django.contrib.auth.models.UserManager.create\_user) 創造測試用的 user instance。
+* 在寫測試的時候，我們用到 csrf middleware token，講到 [middleware](https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E9%97%B4%E4%BB%B6) 和 [csrf](https://www.squarefree.com/securitytips/web-developers.html#CSRF) ，[csrfmiddlewaretoken](https://docs.djangoproject.com/en/4.1/ref/csrf/#how-it-works) 是 post form 的隱藏欄位。
 
 
 
