@@ -1,4 +1,4 @@
-# Django 推薦課程
+# Django 學習筆記
 
 ## [Django 入門與實踐](https://foofish.net/django-tutorial-00.html) <a href="#https-foofish.net-django-tutorial-00.html" id="https-foofish.net-django-tutorial-00.html"></a>
 
