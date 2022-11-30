@@ -1,7 +1,6 @@
 # Table of contents
 
 * [目錄](README.md)
-* [Guitar Sketch](guitar-sketch.md)
 
 ## 🐍 Python
 
@@ -15,7 +14,7 @@
 * [Project](python/project/README.md)
   * [Take a Break](python/project/take-a-break.md)
 * [Django](guides/advanced-permissions.md)
-  * [Django 學習筆記](python/advanced-permissions/django-notes.md)
+  * [Django 學習筆記](python/advanced-permissions/django-tui-jian-ke-cheng.md)
   * [其他知識](python/advanced-permissions/wen-jian-jing-hua.md)
   * [軟體設計及架構](python/advanced-permissions/ruan-ti-she-ji-ji-jia-gou.md)
 
@@ -53,3 +52,4 @@
 
 * [Intro](css/intro.md)
 * [Bootstrap](css/bootstrap.md)
+* [Guitar Sketch](css/guitar-sketch.md)
