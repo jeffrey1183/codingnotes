@@ -15,7 +15,7 @@ $ python3
 [建立 Python 虛擬環境](https://docs.python.org/3/tutorial/venv.html)，先用 command line 移到要建立虛擬環境的資料夾，輸入以下指令，最後面的django\_venv 是你的虛擬環境名稱。
 
 ```
-$ python3 -m venv venv
+$ python3 -m venv django_venv
 ```
 
 
@@ -23,7 +23,7 @@ $ python3 -m venv venv
 建立好虛擬環境後創建完成後，要啟動(activate)虛擬環境，在虛擬環境資料夾輸入以下指令，啟動成功後會看到指令前面多了虛擬資料夾名稱(django\_venv)
 
 ```
-$ source venv/bin/activate
+$ source django_venv/bin/activate
 ```
 
 

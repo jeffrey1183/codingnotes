@@ -116,7 +116,7 @@ urlpatterns = [
 在編寫測試 test.py，有運用到以下觀念
 
 * reverse function 像是把 url 標記進程式裡，第一個 viewname argument 是放 url 的名稱或是呼叫 view object，更多細節可以參考 [reverse 文件](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/) ，resolve 可以找出路徑對應的 view function，第一個 argument 是放路徑，可以參考 [resolve 的官方說明](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#resolve)。
-* `self.client` 是 [Django test client 不是真的瀏覽器](https://stackoverflow.com/questions/57425954/usage-of-self-client-get-vs-self-browser-get)，甚至不會發出真的 request
+* `self.client` 是 [Django test client 不是真的瀏覽器](https://stackoverflow.com/questions/57425954/usage-of-self-client-get-vs-self-browser-get)，甚至不會發出真的 request。
 * [\*args 和 \*\*kwargs 的說明](https://skylinelimit.blogspot.com/2018/04/python-args-kwargs.html)
 
 我們寫 **404 Page Not Found** 的頁面，根據[官方的教程](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#raising-a-404-error)有一點調整，要 import Http404 並且 Http404 method 可以加上顯示在畫面上的字串：
@@ -248,6 +248,14 @@ CSS 檔案
 * `mb-4` 是 Bootstrap 裡設定間距的寫法，m 是 margin，b 是 bottom，可[參考官方文件](https://getbootstrap.com/docs/4.0/utilities/spacing/)。
 * 透過 User model 的 [create\_user method](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#django.contrib.auth.models.UserManager.create\_user) 創造測試用的 user instance。
 * 在寫測試的時候，我們用到 csrf middleware token，講到 [middleware](https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E9%97%B4%E4%BB%B6) 和 [csrf](https://www.squarefree.com/securitytips/web-developers.html#CSRF) ，[csrfmiddlewaretoken](https://docs.djangoproject.com/en/4.1/ref/csrf/#how-it-works) 是 post form 的隱藏欄位。
+* `self.client` 是 [Django test client 不是真的瀏覽器](https://stackoverflow.com/questions/57425954/usage-of-self-client-get-vs-self-browser-get)，之前用到 [get method](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#django.test.Client.get)，這邊是用 [post method](https://docs.djangoproject.com/en/4.1/topics/testing/tools/#django.test.Client.post)，除了路徑也把資料寫進 argument。
+
+
+
+QuerySet Objects
+
+* QuerySet 有一個 [exists method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#exists) 用來判斷 QuerySet 是否存在，會回傳 True 或 False。
+* Python’s 的 [`unittest.TestCase`](https://docs.python.org/3/library/unittest.html#unittest.TestCase) class 有 [`assertTrue`](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue)`,` [`assertFalse`](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertFalse) `和` [`assertEqual`](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertEqual)`幫助作判斷。`
 
 
 
