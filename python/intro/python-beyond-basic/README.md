@@ -37,7 +37,7 @@ print(numbers)
 
 
 
-Dictionary 的簡易寫法
+## Dictionary 的簡易寫法 <a href="#if-statements" id="if-statements"></a>
 
 一開始學的寫法
 
@@ -360,6 +360,7 @@ print_variable()
 </strong>#Hello
 #Hello
 #... .. ...
+
 </code></pre>
 
 運作的概念上，在
@@ -727,7 +728,8 @@ person1.print_person_attributes(person2)
 #Ana
 <strong>#21
 </strong>#Sara
-#20</code></pre>
+#20
+</code></pre>
 
 
 
@@ -962,7 +964,8 @@ stu.display_info()
 </strong>
 #name: Sophia
 #age: 24
-#id: 12</code></pre>
+#id: 12
+</code></pre>
 
 另一個很漂亮的案例，是做長度的計算，把兩個長度相加，因為 1 feet 是 12 inches，相加後要做換算。裡面有一個 add\_distances 的 method，把輸入的物件相加計算長度。
 

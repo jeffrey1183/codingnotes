@@ -168,6 +168,18 @@ def board_topics(request, pk):
 
 
 
+return 的語法
+
+* 上面用到 [Python 的 return 語法](https://www.digitalocean.com/community/tutorials/python-return-statement)return 語法只用在 function 內，不能在 function 之外的地方。每個 function 都會 return something，如果一個 function 沒有 return 就是 return `None。`
+* 我們也可以在 function 內計算，像 x+y 然後 return 結果。回傳值可以是 boolean, string, tuple, list 或 dictionary object。
+* return 的值不只可以是 string, tuple, dictionary，也可以是 function，這邊用 render function。
+
+reder function
+
+* render function 的 arguments 請參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)。
+
+
+
 ### [第十二章 複用模板](https://foofish.net/django-tutorial-12.html)
 
 #### 讀取靜態檔案
@@ -271,6 +283,25 @@ message = request.POST['message']
 
 * QuerySet 的 [first method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#first) 可以回傳 set 裡的第一個物件，如果沒有要求順序，會根據 primary key 的順序。
 * POST 的時候，會建立 topic 和 post 兩個 object，透過 QuerySet 的 [create method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#create)。
+
+
+
+Form API
+
+*   在 HTML 裡， form element 包了一些 elements 像 label 和 input element，而 input element 處理 2 件事：
+
+    * where: 用戶輸入的資料，要傳到哪個 URL&#x20;
+    * how: 要用哪種 HTTP method&#x20;
+
+    例如 Django 的後台有很多 input element，type = “text” 是設定 username，type=”password” 是設定 password，`type="submit"` 是設定登入按鈕。資料要傳到哪裡會用`<form> 的 action` attribute - `/admin/，用 method` attribute 指定 HTTP method 是 POST 還是 GET。
+* 以 Django 官方文件為例，使用 Form class 定義表單欄位的時候，欄位裡的 [label argument](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#label) 會預設先拿命名的 field name 作為預設值，field name 中的底線轉成空白，把第一個字母變大寫，大多會手動設定 label 要顯示什麼。
+* Field class 預設每一個欄位都是[必填(required)](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.Field.required)，如果是空字串或是 None 都會觸發 ValidationError，如果此欄位非必填請在 class 的 argument 中設定 **required=False。**
+* Widget 負責處理 Django 與 HTML input element 的轉換，[每種欄位都有預設要轉成哪種 HTML element](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#charfield)，例如 CharField 預設是 TextInput，對應 HTML 的 **\<input type=”text” …>。**如果你不喜歡可以直接指定你要哪個 widget，像[官方的案例](https://docs.djangoproject.com/en/4.1/ref/forms/widgets/#specifying-widgets)中，就把 CharField 預設的 TextInput widget 改成 Textarea。至於有哪些 widget 可以使用，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/ref/forms/widgets/#widgets-handling-input-of-text)。
+* Meta class 是用來設定 metadata，metadata 不是欄位也非必填，可以從這份 [Model Meta options文件](https://docs.djangoproject.com/en/4.1/ref/models/options/#model-meta-options)去找，比較常用像 ordering。
+* 如果你的 app 上的欄位跟資料庫欄位有相關，就不用在 form 裡面再定義一次欄位，可以用 ModelForm。在 models.py 裡定義的 model field 會轉成 form field，像 `Charfield` 一樣轉成 `Charfield`，而`ManyToManyField` 會轉成 `MultipleChoiceField`**`。`**`轉換表可以參考`[**`此文件`**](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#field-types)**`。`**
+* ModelForm 和 Form class 的差異是什麼？可以看[官方的 ModelForm 這篇](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#a-full-example)，有把寫法列出來，看起來差在 save method 的使用，範例裡使用的 [string method](https://www.quora.com/What-does-def-str\_\_-self-method-does-in-Django) 是用來回傳欄位的名稱。案例中可以看到 DateField 怎麼用，[null 和 blank 兩個 argument 預設都是 False](https://www.geeksforgeeks.org/datefield-django-models/)，表示此欄位必填，如果是非必填欄位要改成 True。
+* DateField 和 DateTimeField 的差異是，DateField 只有日期，DateTimeField 還加上時間。
+* ManyToManyField 的欄位要怎麼應用，請參考此[官方文件](https://docs.djangoproject.com/en/4.1/topics/db/examples/many\_to\_many/)。
 
 ## Pluralsight 線上課程
 

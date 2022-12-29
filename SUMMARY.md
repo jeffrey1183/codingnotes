@@ -8,6 +8,7 @@
   * [Programiz](python/intro/programiz.md)
   * [Python Beyond Basic](python/intro/python-beyond-basic/README.md)
     * [圈圈叉叉遊戲](python/intro/python-beyond-basic/tic-tac-toe.md)
+    * [Digital Occean](python/intro/python-beyond-basic/digital-occean.md)
   * [Introduction to Python Programming](python/intro/introduction-to-python-programming/README.md)
     * [Lesson 1：為何選擇 Python?](python/intro/introduction-to-python-programming/lesson-1-wei-he-xuan-ze-python.md)
     * [Lesson 2：Data Types And Operators](python/intro/introduction-to-python-programming/lesson-2-data-types-and-operators.md)

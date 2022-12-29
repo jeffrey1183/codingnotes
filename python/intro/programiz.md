@@ -55,7 +55,7 @@ print(languages)   # ('Python', 'JavaScript')
 
 
 
-dictionary 裡面是 key 和 value 的關係，dictionary 內不能有重複的 key，像下面的 dict5變數。
+dictionary 裡面是 key 和 value 的關係，dictionary 內不能有重複的 key，像下面的 dict變數。
 
 dictionary 一定要是 unique 和 immutable object。dictionary 可以用字串、數字和 Tuple 當作 key，但不能用 list 當作 key，像下面的變數 dict4，但 list 可以作為 value，像下面的 dict3 變數。
 
