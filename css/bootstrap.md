@@ -26,8 +26,6 @@
 <button type="button" class="btn btn-primary">Primary</button>
 ```
 
-然後可以到 Bootstrap 的 [button 的文件](https://getbootstrap.com/docs/5.2/components/buttons/)
-
 
 
 ### Breakpoint
