@@ -16,6 +16,10 @@ UML (Unified Modeling Language)，中文名稱為「統一塑模語言
 
 
 
+## MVC 架構
+
+* [MVC架構是什麼？認識 Model-View-Controller 軟體設計模式](https://tw.alphacamp.co/blog/mvc-model-view-controller)
+
 
 
 Class Diagram 繪圖軟體

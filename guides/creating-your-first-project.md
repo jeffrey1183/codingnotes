@@ -3,8 +3,9 @@
 ## Python 基礎知識
 
 * [Python 入門](https://medium.com/ccclub/tagged/python-%E5%85%A5%E9%96%80) by [ccClub](https://www.ccclub.io/?fbclid=IwAR3oMQqJL159OCLdriqsNtSlw4EPB4RUtP5\_A44xR8osQAdd84HimfM2ysk)
-* Programiz
+* [Programiz](https://programiz.pro/)
 * [Django girls](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/)
+* [Digitalocean](https://www.digitalocean.com/community/tutorials)
 
 
 

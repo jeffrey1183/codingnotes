@@ -141,7 +141,7 @@ def board_topics(request, pk):
 
 另一個寫法是用 `get_object_or_404` method，argument 有 class，可以參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404)
 
-不過為什麼我們可以直接使用 pk？我們的 model 裡沒有這個值吧？其實 pk 是 Django model 的特殊性質，永遠指向該 model 的 primary key（當然）。前面提過，Django model 一定要有 primary key，而且如果你沒有特別設定，預設會在每一個 model 加上一個 id 欄位來當作 primary key。所以在這個例子中使用 pk 就等同於 id，但是用 pk 在大多時候比較有彈性，因為事實上 primary key 可以隨意設定，不見得要是 id。
+不過為什麼我們可以直接使用 pk？其實 pk 是 Django model 的特殊性質，永遠指向該 model 的 primary key。前面提過，Django model 一定要有 primary key，而且如果你沒有特別設定，預設會在每一個 model 加上一個 id 欄位來當作 primary key。所以在這個例子中使用 pk 就等同於 id，但是用 pk 在大多時候比較有彈性，因為事實上 primary key 可以隨意設定，不見得要是 id。
 
 ```python
 import imp
@@ -174,9 +174,9 @@ return 的語法
 * 我們也可以在 function 內計算，像 x+y 然後 return 結果。回傳值可以是 boolean, string, tuple, list 或 dictionary object。
 * return 的值不只可以是 string, tuple, dictionary，也可以是 function，這邊用 render function。
 
-reder function
+[render method](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)
 
-* render function 的 arguments 請參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)。
+* render function 的必填 arguments 有 request 和 template name，選填的有 context，用 dictionary 的形式表現，像在案例裡是 {‘board’: board}，裡面的 board 是 views.py 在 function 一開始撈的物件，接下來要傳進 template 裡使用，其他欄位請參考[官方文件](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)。
 
 
 
@@ -250,7 +250,7 @@ CSS 檔案
 
 * Django 透過 CSRF Token 保護所有 POST 請求，每一次 POST 都會先檢查 CSRF Token，沒有 token 或是 token 無效就會拋棄提交的數據。
 * Bootstrap 裡的 [form group](https://getbootstrap.com/docs/4.0/components/forms/#form-groups) class 是最簡單建立表格的寫法，搭配一行 label，一行 input 的寫法。而這些 label 和 input 是 form control，[form control](https://getbootstrap.com/docs/4.0/components/forms/#form-controls) 是指 \<form> 表單內的那些使用者介面元素，像是文字輸入欄位，密碼輸入欄位，日期輸入欄位，下拉選單，複選框，提交按鈕等。這個範例是用 textarea 可以設定要有幾列。
-* [Button](https://getbootstrap.com/docs/4.0/components/buttons/) 的寫法可以參考 Bootstrap 官方文件。
+* [Button](https://getbootstrap.com/docs/4.0/components/buttons/) 的寫法可以參考[ Bootstrap 官方文件](https://getbootstrap.com/docs/4.0/components/buttons/#button-tags)。
 * fieldset 的基本寫法和屬性，請參考[此文件](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/fieldset)，legend 是 fieldset 裡的標題。[在 Boostrap 裡](https://getbootstrap.com/docs/4.0/components/forms/#horizontal-form)，也是包在 form tag 裡，class 用 form-group。
 * \<th> tag 是 [table head](https://www.computerhope.com/jargon/h/html-th-tag.htm) 的意思。
 * 在 Bootstrap 裡有不同的 [table class](https://getbootstrap.com/docs/4.0/content/tables/) 可以設定樣式。
@@ -288,6 +288,7 @@ message = request.POST['message']
 
 Form API
 
+* Form object 的主要任務是驗證資料是否符合定義的格式，每個 Form instance 可透過 is\_valid method 去驗證，會回傳 boolean 值 True 或 False 說明資料是否有效。
 *   在 HTML 裡， form element 包了一些 elements 像 label 和 input element，而 input element 處理 2 件事：
 
     * where: 用戶輸入的資料，要傳到哪個 URL&#x20;
@@ -302,6 +303,55 @@ Form API
 * ModelForm 和 Form class 的差異是什麼？可以看[官方的 ModelForm 這篇](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#a-full-example)，有把寫法列出來，看起來差在 save method 的使用，範例裡使用的 [string method](https://www.quora.com/What-does-def-str\_\_-self-method-does-in-Django) 是用來回傳欄位的名稱。案例中可以看到 DateField 怎麼用，[null 和 blank 兩個 argument 預設都是 False](https://www.geeksforgeeks.org/datefield-django-models/)，表示此欄位必填，如果是非必填欄位要改成 True。
 * DateField 和 DateTimeField 的差異是，DateField 只有日期，DateTimeField 還加上時間。
 * ManyToManyField 的欄位要怎麼應用，請參考此[官方文件](https://docs.djangoproject.com/en/4.1/topics/db/examples/many\_to\_many/)。
+
+
+
+[Working with forms](https://docs.djangoproject.com/en/4.1/topics/forms/)
+
+在 [Django 官方文件介紹](https://docs.djangoproject.com/en/4.1/topics/forms/#building-a-form)中，假如你要建立表單獲取用戶名稱，下面的程式碼是最基本的：
+
+```
+HTML
+<form action="/your-name/" mehtod="post">
+  <label for="your_name">Your name:</label>
+  <input id="your_name" type="text" name="your_name" value="{{ current_value }}">
+  <input type="submit" value="OK">
+</form>
+```
+
+在 \<form> 裡設定的 action 是 form 要呼叫的對象，\{{ current\_value \}}
+
+
+
+
+
+關於 Form class 有哪些欄位，可以參考[此文件](https://docs.djangoproject.com/en/4.1/ref/forms/fields/)。每個欄位有對應的 Widget class，就像 HTML 裡的 input type，可能 input type 是 text 或是 email，大部分的情況下，每個欄位都有預設的 widget，例如 CharField 預設是 TextInput widget ，在 HTML 會產生 **`<input type="text">`** ，如果你要指定用 HTML 裡的 **`<textarea>，`**`請在定義 form field 的時候指定 widget，像下面的寫法。`
+
+```
+comment = forms.CharField(widget=forms.Textarea)
+```
+
+
+
+
+
+如果你的表格包含[**`URLField`**](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.URLField)`、`[**`EmailField`**](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.EmailField) 或任何 integer 類型的欄位， Django 會用 HTML5**`url`**, **`email`** 和 **`number 的`**input types。瀏覽器預設會用他們自己的驗證方式去驗證這些欄位，可能會比 Django 的驗證嚴格，可以透過 form tag 的 **`novalidate`** attribute 去設定，或為這些欄位指定不同的 widget。
+
+
+
+
+
+
+
+
+
+
+
+[redirect method](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#redirect)
+
+* [**HttpResponseRedirect**](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponseRedirect) **是** HttpResponse 的 subclass，用來轉導路徑，必填欄位是帶有 domain 的絕對路徑或是相對路徑。除了 HttpResponseRedirect 外，[redirect](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#examples) 更進階，除了可以接收 url 也可以將 model 和 view name 作為參數，回傳到 HttpResponseRedirect，案例裡的 board\_topics 就是 view 的名稱，pk=board.pk 設定 url 裡的 pk 變數是 board 的 primary key。
+
+
 
 ## Pluralsight 線上課程
 

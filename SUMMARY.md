@@ -18,6 +18,7 @@
   * [Django 學習筆記](python/advanced-permissions/django-tui-jian-ke-cheng.md)
   * [其他知識](python/advanced-permissions/wen-jian-jing-hua.md)
   * [軟體設計及架構](python/advanced-permissions/ruan-ti-she-ji-ji-jia-gou.md)
+  * [MDN 教學](python/advanced-permissions/mdn-jiao-xue.md)
 
 ## 🍎 iOS
 
@@ -48,6 +49,7 @@
 ## Resources
 
 * [CS50](resources/keyboard-shortcuts.md)
+* [LAMP](resources/lamp.md)
 
 ## CSS
 

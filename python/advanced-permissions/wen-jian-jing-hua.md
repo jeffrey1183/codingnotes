@@ -35,3 +35,12 @@ QuerySet
 
 
 The template system uses dot-lookup syntax to access variable attributes. In the example of `{{ question.question_text }}`, first Django does a dictionary lookup on the object `question`.
+
+
+
+
+
+XML
+
+* [跟 HTML 的差別](https://www.w3.org/standards/xml/core)
+
