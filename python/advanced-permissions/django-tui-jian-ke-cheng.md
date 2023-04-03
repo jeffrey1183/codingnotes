@@ -339,6 +339,12 @@ comment = forms.CharField(widget=forms.Textarea)
 
 
 
+****[**欄位資料(Field data)**](https://docs.djangoproject.com/en/4.1/topics/forms/#field-data)****
+
+當資料成功從表格送出(可以用 is\_valid() method 去驗證)，已經驗證的 form data 會存在 **`form.cleaned_data`** dictionary 裡，這資料會轉成 Python 類型的資料，以上面的 contact form 為例，裡面的 **`cc_myself`** 是 boolean 值，像 [**`IntegerField`**](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.IntegerField) 和[**`FloatField`**](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.FloatField) **`欄位會分別轉成`** Python 的**`int 和 float。`**沒驗證成功的資料還是可以透過 **request.POST 撈到。**
+
+
+
 
 
 

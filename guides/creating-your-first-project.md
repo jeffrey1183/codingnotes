@@ -9,6 +9,13 @@
 
 
 
+## Python Windows 安裝
+
+* [安裝步驟](https://docs.aws.amazon.com/zh\_tw/elasticbeanstalk/latest/dg/eb-cli3-install-windows.html)
+* 安裝時要勾選 Add Python to PATH
+
+
+
 ### enumerate function <a href="#f2e0" id="f2e0"></a>
 
 我們可以使用 Python 中的一個函數來同時取得一個元素在一個 list 中的 index 與他的值。使用的方法如下 ：
