@@ -44,3 +44,12 @@ XML
 
 * [跟 HTML 的差別](https://www.w3.org/standards/xml/core)
 
+
+
+Email&#x20;
+
+* [TLS](https://www.websecurity.digicert.com/zh/hk/security-topics/what-is-ssl-tls-https) (secure) connection
+* [SMTP](https://www.cloudflare.com/zh-tw/learning/email-security/what-is-smtp/)
+
+
+
