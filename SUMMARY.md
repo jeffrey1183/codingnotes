@@ -54,6 +54,7 @@
 ## IoT
 
 * [Matter](iot/keyboard-shortcuts.md)
+* [MQTT](iot/mqtt.md)
 
 ## CSS
 
