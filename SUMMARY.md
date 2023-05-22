@@ -51,6 +51,10 @@
 * [CS50](resources/keyboard-shortcuts.md)
 * [LAMP](resources/lamp.md)
 
+## IoT
+
+* [Matter](iot/keyboard-shortcuts.md)
+
 ## CSS
 
 * [Intro](css/intro.md)
