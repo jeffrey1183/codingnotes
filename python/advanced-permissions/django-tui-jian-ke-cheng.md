@@ -274,6 +274,7 @@ QuerySet Objects
 QueryDict Objects
 
 * 對於 `HttpRequest` object 來說，他的 `GET` and `POST` attributes 都是 `django.http.QueryDict 的 instance，是一個`dictionary-like 的 class，常運用在 HTML 表格，對於一個 key 傳遞多個 value，例如一個留言的功能，用戶可以上傳不同內容。
+* HttpRequest.POST 和 HttpRequest.body 不同，前者是 dictionary-like object 包含 form data，後者則是 raw 或是 non-form data。
 * 在這一章裡我們將新增的標題和內文 assign 到 subject 和 message 的變數內，[request.POST 從官方文件的說明得知是一個 dictionary](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpRequest.POST)，所以我們下面用 [assign dictionary value 寫法](https://www.tutorialspoint.com/How-do-I-assign-a-dictionary-value-to-a-variable-in-Python)。文件也提到 POST 的表格可能是空的，因此要用 if request.method == “POST” 去做檢查，不能直接 request.POST 資料。
 
 ```
@@ -339,7 +340,7 @@ comment = forms.CharField(widget=forms.Textarea)
 
 
 
-****[**欄位資料(Field data)**](https://docs.djangoproject.com/en/4.1/topics/forms/#field-data)****
+[**欄位資料(Field data)**](https://docs.djangoproject.com/en/4.1/topics/forms/#field-data)
 
 當資料成功從表格送出(可以用 is\_valid() method 去驗證)，已經驗證的 form data 會存在 **`form.cleaned_data`** dictionary 裡，這資料會轉成 Python 類型的資料，以上面的 contact form 為例，裡面的 **`cc_myself`** 是 boolean 值，像 [**`IntegerField`**](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.IntegerField) 和[**`FloatField`**](https://docs.djangoproject.com/en/4.1/ref/forms/fields/#django.forms.FloatField) **`欄位會分別轉成`** Python 的**`int 和 float。`**沒驗證成功的資料還是可以透過 **request.POST 撈到。**
 

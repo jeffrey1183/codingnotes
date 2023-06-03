@@ -77,7 +77,7 @@ print(square_numbers)
 numbers = [1,2,3,4]
 
 # create dictionary using comprehension
-square_numbers = {number:number**2 for number in numbers if numbrt > 2}
+square_numbers = {number:number**2 for number in numbers if numbet > 2}
  
 print(square_numbers)   # {3: 9, 4: 16}
 
@@ -780,7 +780,7 @@ Python 已經存在定義的內容都是物件，無論是 strings, lists, numbe
 
 **Everything is an object in Python.**
 
-****
+
 
 ## How Do Variables Actually Work?
 
@@ -2121,7 +2121,7 @@ Since our code won't raise any exception, it doesn't matter what input the user 
 
 
 
-****
+
 
 ## QR Code 專案
 
