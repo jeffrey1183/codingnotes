@@ -9,6 +9,11 @@
 
 
 
+## 簡易郵件傳輸通訊協定 (SMTP)
+
+* [介紹](https://www.cloudflare.com/zh-tw/learning/email-security/what-is-smtp/)
+* [Python 介紹](https://docs.python.org/3/library/smtplib.html#module-smtplib)
+
 ## Online Compiler
 
 * [Programiz](https://www.programiz.com/python-programming/online-compiler/)
@@ -85,4 +90,6 @@ for i in range(1, 10):
         else:
             print("\t", i*j, end = '') # j < 9時，不換行
 ```
+
+
 
