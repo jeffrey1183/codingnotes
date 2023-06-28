@@ -1,5 +1,13 @@
 # Matter
 
+
+
+[CSA官網](https://csa-iot.org/all-solutions/matter/)
+
+[Matter Spec Version 1.0](https://csa-iot.org/wp-content/uploads/2022/11/22-27349-001\_Matter-1.0-Core-Specification.pdf)
+
+
+
 * [Matter 1.0 Core Specification](https://csa-iot.org/wp-content/uploads/2022/11/22-27349-001\_Matter-1.0-Core-Specification.pdf)
 * [Matter 1.0 Device Library Specification](https://csa-iot.org/wp-content/uploads/2022/11/22-27351-001\_Matter-1.0-Device-Library-Specification.pdf)
 * [Matter 1.0 Application Cluster Specification](https://csa-iot.org/wp-content/uploads/2022/11/22-27350-001\_Matter-1.0-Application-Cluster-Specification.pdf)
@@ -22,3 +30,10 @@
 * [Zigbee Smart Energy Standard 1.4 (Simplified Chinese)](https://csa-iot.org/wp-content/uploads/2022/01/Zigbee-Smart-Energy-Standard-1.4-Simplified-Chinese.pdf)
 * [Zigbee Smart Energy Specification Standard v1.2a](https://csa-iot.org/wp-content/uploads/2022/01/docs-07-5356-19-0zse-zigbee-smart-energy-profile-specification-v1.0.pdf)
 * [Zigbee Rf4ce Specification v1.01](https://csa-iot.org/wp-content/uploads/2022/01/095262r01ZB\_zigbee\_rf4ce\_sc-ZigBee\_RF4CE\_Specification\_public.pdf)
+
+
+
+文章
+
+* [What Matters about Matter, the new smart home standard](https://www.theverge.com/22832127/matter-smart-home-products-thread-wifi-explainer)
+* [Wiz](https://www.theverge.com/2023/4/25/23697537/wiz-smart-bulbs-matter-compatible-apple-home)
