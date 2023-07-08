@@ -6,6 +6,8 @@
 
 [Matter Spec Version 1.0](https://csa-iot.org/wp-content/uploads/2022/11/22-27349-001\_Matter-1.0-Core-Specification.pdf)
 
+[KAFKA PROTOCOL GUIDE](https://kafka.apache.org/protocol.html#protocol\_types)
+
 
 
 * [Matter 1.0 Core Specification](https://csa-iot.org/wp-content/uploads/2022/11/22-27349-001\_Matter-1.0-Core-Specification.pdf)
