@@ -346,6 +346,39 @@ comment = forms.CharField(widget=forms.Textarea)
 
 
 
+## [Model Field Reference](https://docs.djangoproject.com/en/4.2/ref/models/fields/#field-options)
+
+## Field Options
+
+field option 是 field types 的 argument，field type 像是 CharField 和 DateField，實際的寫法像下面這樣， choices 是一個 field option，我們建立了 year\_in\_school 的 CharField 欄位，在 argument 裡我們用了 choices：
+
+```python
+from django.db import models
+
+
+class Student(models.Model):
+    FRESHMAN = "FR"
+    SOPHOMORE = "SO"
+    JUNIOR = "JR"
+    SENIOR = "SR"
+    GRADUATE = "GR"
+    YEAR_IN_SCHOOL_CHOICES = [
+        (FRESHMAN, "Freshman"),
+        (SOPHOMORE, "Sophomore"),
+        (JUNIOR, "Junior"),
+        (SENIOR, "Senior"),
+        (GRADUATE, "Graduate"),
+    ]
+    year_in_school = models.CharField(
+        max_length=2,
+        choices=YEAR_IN_SCHOOL_CHOICES,
+        default=FRESHMAN,
+    )
+
+    def is_upperclass(self):
+        return self.year_in_school in {self.JUNIOR, self.SENIOR}
+```
+
 
 
 
