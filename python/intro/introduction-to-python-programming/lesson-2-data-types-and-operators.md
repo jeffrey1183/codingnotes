@@ -13,7 +13,7 @@
 
 ### Arithmetic Operators Arithmetic operators
 
-* **`+` ** Addition
+* **`+`** Addition
 * `-`Subtraction
 * `*`Multiplication
 * `/` Division&#x20;
@@ -36,7 +36,7 @@ print(9%2)\
 
 print(7 // 2) 7除以2是 3.5，向下取整數為 3 print(-7 // 2) -7 除以2是 -3.5，向下取整數為 -4
 
-## ****
+##
 
 ## **String Methods**&#x20;
 
@@ -60,4 +60,8 @@ True
 ```
 
 
+
+## Tuple
+
+* [參考資料](https://selflearningsuccess.com/python-tuple/)
 
