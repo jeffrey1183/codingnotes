@@ -31,7 +31,7 @@ def home(request):
     boards = Board.objects.all()
 ```
 
-官方文件請參考[這一段](https://docs.djangoproject.com/en/4.1/topics/db/queries/#retrieving-objects)，Queryset 的 method 相當多，請參考[此文件](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#django.db.models.query.QuerySet)。
+Queryset 的 method 相當多，請參考[此文件](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#django.db.models.query.QuerySet)官方文件請參考[這一段](https://docs.djangoproject.com/en/4.1/topics/db/queries/#retrieving-objects)，Queryset 的 method 相當多，請參考[此文件](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#django.db.models.query.QuerySet)，例如常用的 [all method](https://docs.djangoproject.com/en/4.1/ref/models/querysets/#django.db.models.query.QuerySet.all) 。
 
 * `auto_add_new`[會在 model 物件第一次被創建時，將字段的值設成創建的時間，之後修改物件，字段的值不會再更新](https://agvszwk.github.io/2019/05/11/django%E7%9A%84model-auto-now-add%E5%92%8Cauto-now/)。設定 [DateTimeField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datetimefield) 的時候會用到。
 * `ForeignKey` 是用在一對多的模型關係，其他關係像多對多，一對一請[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#foreignkey)，參數 relate\_name 的細節可先看第五章的說明，他是一個 opotional 的項目，如果不設定會自動生成 class name set 的屬性，有需要了解其他參數再看[參考文件](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related\_name)
