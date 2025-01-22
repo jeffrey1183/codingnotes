@@ -37,7 +37,7 @@
 * [For Support](use-cases/for-support/README.md)
   * [Intercom Integration](use-cases/for-support/intercom-integration.md)
 
-## 🎙 Audio Plugin Development <a href="#audio" id="audio"></a>
+## 🎙️ Audio Plugin Development <a href="#audio" id="audio"></a>
 
 * [目錄](audio/for-designers/README.md)
   * [Figma Integration](audio/for-designers/figma-integration.md)
